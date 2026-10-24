@@ -98,6 +98,30 @@
           "url": "https://github.blog/news-insights/company-news/welcome-home-agents/"
         }
       ]
+    },
+    {
+      "id": "google",
+      "name": "Google",
+      "framework": "The New SDLC with Vibe Coding (May 2026, Kaggle)",
+      "status": "Reviewed via secondary summaries",
+      "sources": [
+        {
+          "label": "Whitepaper (Kaggle, page does not render without JavaScript)",
+          "url": "https://www.kaggle.com/whitepaper-the-new-SDLC-with-vibe-coding"
+        },
+        {
+          "label": "Okane Land summary",
+          "url": "https://okaneland.com/study/new-sdlc-with-vibe-coding/"
+        },
+        {
+          "label": "Working Software summary",
+          "url": "https://www.workingsoftware.dev/the-new-software-development-lifecycle-sdlc-from-vibe-coding-to-agentic-engineering/"
+        },
+        {
+          "label": "dev.to summary",
+          "url": "https://dev.to/jamilxt/googles-new-sdlc-whitepaper-from-vibe-coding-to-agentic-engineering-5a1l"
+        }
+      ]
     }
   ],
   "pending": [],
@@ -161,6 +185,20 @@
             {
               "label": "Agent HQ post",
               "url": "https://github.blog/news-insights/company-news/welcome-home-agents/"
+            }
+          ]
+        },
+        "google": {
+          "rating": "similar",
+          "text": "Keeps the six traditional phases and shifts where time goes: requirements become a conversation that yields a spec, implementation compresses, review gains an AI first pass. The organising idea is a spectrum from vibe coding to agentic engineering, set by how outputs are verified.",
+          "links": [
+            {
+              "label": "Okane Land summary",
+              "url": "https://okaneland.com/study/new-sdlc-with-vibe-coding/"
+            },
+            {
+              "label": "Working Software summary",
+              "url": "https://www.workingsoftware.dev/the-new-software-development-lifecycle-sdlc-from-vibe-coding-to-agentic-engineering/"
             }
           ]
         }
@@ -227,6 +265,16 @@
               "url": "https://github.blog/news-insights/company-news/welcome-home-agents/"
             }
           ]
+        },
+        "google": {
+          "rating": "similar",
+          "text": "Specs and architecture docs go in; agents implement; tests and gates verify; feedback loops send failures back. Presented as a 'factory' of artifacts, not a named set of files per stage.",
+          "links": [
+            {
+              "label": "dev.to summary",
+              "url": "https://dev.to/jamilxt/googles-new-sdlc-whitepaper-from-vibe-coding-to-agentic-engineering-5a1l"
+            }
+          ]
         }
       }
     },
@@ -289,6 +337,20 @@
             {
               "label": "Build",
               "url": "https://github.blog/news-insights/company-news/welcome-home-agents/"
+            }
+          ]
+        },
+        "google": {
+          "rating": "same",
+          "text": "Instruction files (AGENTS.md, CLAUDE.md, GEMINI.md) updated whenever the agent repeats a mistake. Six context types (instructions, knowledge, memory, examples, tools, guardrails), static or dynamic. Agent Skills load on demand.",
+          "links": [
+            {
+              "label": "Working Software summary",
+              "url": "https://www.workingsoftware.dev/the-new-software-development-lifecycle-sdlc-from-vibe-coding-to-agentic-engineering/"
+            },
+            {
+              "label": "dev.to summary",
+              "url": "https://dev.to/jamilxt/googles-new-sdlc-whitepaper-from-vibe-coding-to-agentic-engineering-5a1l"
             }
           ]
         }
@@ -355,6 +417,20 @@
               "url": "https://github.blog/news-insights/company-news/welcome-home-agents/"
             }
           ]
+        },
+        "google": {
+          "rating": "similar",
+          "text": "Guardrails and hooks at lifecycle points, sandboxes, and CI/CD gates sit in the 'harness' around the model. No managed-settings style central policy described in the summaries.",
+          "links": [
+            {
+              "label": "Okane Land summary",
+              "url": "https://okaneland.com/study/new-sdlc-with-vibe-coding/"
+            },
+            {
+              "label": "dev.to summary",
+              "url": "https://dev.to/jamilxt/googles-new-sdlc-whitepaper-from-vibe-coding-to-agentic-engineering-5a1l"
+            }
+          ]
         }
       }
     },
@@ -417,6 +493,20 @@
             {
               "label": "Human oversight",
               "url": "https://github.blog/news-insights/company-news/welcome-home-agents/"
+            }
+          ]
+        },
+        "google": {
+          "rating": "same",
+          "text": "Humans specify, decompose, evaluate and own architecture and trade-offs; AI does implementation, test generation and first-pass review. Two modes: conductor (real-time pairing) and orchestrator (async delegation).",
+          "links": [
+            {
+              "label": "dev.to summary",
+              "url": "https://dev.to/jamilxt/googles-new-sdlc-whitepaper-from-vibe-coding-to-agentic-engineering-5a1l"
+            },
+            {
+              "label": "Okane Land summary",
+              "url": "https://okaneland.com/study/new-sdlc-with-vibe-coding/"
             }
           ]
         }
@@ -483,6 +573,16 @@
               "url": "https://github.blog/news-insights/company-news/welcome-home-agents/"
             }
           ]
+        },
+        "google": {
+          "rating": "different-path",
+          "text": "No graded approval tiers. Instead draws one line: vibe coding for prototypes, agentic engineering with formal verification for production (a payment system should not be vibe coded).",
+          "links": [
+            {
+              "label": "Okane Land summary",
+              "url": "https://okaneland.com/study/new-sdlc-with-vibe-coding/"
+            }
+          ]
         }
       }
     },
@@ -547,6 +647,20 @@
               "url": "https://github.blog/news-insights/company-news/welcome-home-agents/"
             }
           ]
+        },
+        "google": {
+          "rating": "similar",
+          "text": "Tests and evals written before code; without both it counts as vibe coding. Output evals check the result, trajectory evals check the path. LLM judges and CI gates at the strict end. Review every shipped line.",
+          "links": [
+            {
+              "label": "Okane Land summary",
+              "url": "https://okaneland.com/study/new-sdlc-with-vibe-coding/"
+            },
+            {
+              "label": "Working Software summary",
+              "url": "https://www.workingsoftware.dev/the-new-software-development-lifecycle-sdlc-from-vibe-coding-to-agentic-engineering/"
+            }
+          ]
         }
       }
     },
@@ -609,6 +723,16 @@
             {
               "label": "Agent HQ post",
               "url": "https://github.blog/news-insights/company-news/welcome-home-agents/"
+            }
+          ]
+        },
+        "google": {
+          "rating": "not-covered",
+          "text": "Feedback loops and observability (logs, traces, evals, cost metering) are described, but the summaries do not describe production signals feeding the next piece of work.",
+          "links": [
+            {
+              "label": "dev.to summary",
+              "url": "https://dev.to/jamilxt/googles-new-sdlc-whitepaper-from-vibe-coding-to-agentic-engineering-5a1l"
             }
           ]
         }
@@ -679,6 +803,20 @@
               "url": "https://github.blog/news-insights/company-news/welcome-home-agents/"
             }
           ]
+        },
+        "google": {
+          "rating": "different-path",
+          "text": "No team model. Treat prompts, evals and skill libraries as versioned code, reviewed in PRs and owned by named engineers. Lists skills to build: specification, decomposition, evaluation design. Route large models to design, small ones to tests and review.",
+          "links": [
+            {
+              "label": "dev.to summary",
+              "url": "https://dev.to/jamilxt/googles-new-sdlc-whitepaper-from-vibe-coding-to-agentic-engineering-5a1l"
+            },
+            {
+              "label": "Okane Land summary",
+              "url": "https://okaneland.com/study/new-sdlc-with-vibe-coding/"
+            }
+          ]
         }
       }
     },
@@ -741,6 +879,16 @@
             {
               "label": "Metrics dashboard",
               "url": "https://github.blog/news-insights/company-news/welcome-home-agents/"
+            }
+          ]
+        },
+        "google": {
+          "rating": "different",
+          "text": "No delivery-metrics framework in the summaries. Measurement is about the agent: eval suites as the quality bar, observability, cost metering.",
+          "links": [
+            {
+              "label": "Okane Land summary",
+              "url": "https://okaneland.com/study/new-sdlc-with-vibe-coding/"
             }
           ]
         }
@@ -811,6 +959,20 @@
               "url": "https://github.blog/news-insights/company-news/welcome-home-agents/"
             }
           ]
+        },
+        "google": {
+          "rating": "similar",
+          "text": "Individuals: write a short AGENTS.md, add a rule per repeated mistake, turn one repetitive workflow into an agent, tests first. Leaders: version AI artifacts, make the prototype/production line explicit, adopt open standards (MCP, A2A).",
+          "links": [
+            {
+              "label": "dev.to summary",
+              "url": "https://dev.to/jamilxt/googles-new-sdlc-whitepaper-from-vibe-coding-to-agentic-engineering-5a1l"
+            },
+            {
+              "label": "Okane Land summary",
+              "url": "https://okaneland.com/study/new-sdlc-with-vibe-coding/"
+            }
+          ]
         }
       }
     },
@@ -873,6 +1035,16 @@
             {
               "label": "Agent HQ post",
               "url": "https://github.blog/news-insights/company-news/welcome-home-agents/"
+            }
+          ]
+        },
+        "google": {
+          "rating": "different",
+          "text": "Conceptual whitepaper (about 50 pages) from a free Kaggle course. Principles and examples, not step-by-step plays or file templates, per the summaries.",
+          "links": [
+            {
+              "label": "Whitepaper (Kaggle)",
+              "url": "https://www.kaggle.com/whitepaper-the-new-SDLC-with-vibe-coding"
             }
           ]
         }
@@ -939,6 +1111,16 @@
               "url": "https://github.blog/news-insights/company-news/welcome-home-agents/"
             }
           ]
+        },
+        "google": {
+          "rating": "different-path",
+          "text": "Cites external studies rather than its own delivery results: adoption surveys (85% use agents, 51% daily), a LangChain harness-only gain on Terminal-Bench, METR's 19% slowdown for experienced developers. One summary could not trace the 41% AI-code figure and calls the productivity ranges soft.",
+          "links": [
+            {
+              "label": "Okane Land fact-check",
+              "url": "https://okaneland.com/study/new-sdlc-with-vibe-coding/"
+            }
+          ]
         }
       }
     },
@@ -991,6 +1173,15 @@
             "Central governance concept: policy, audit, allowed agents",
             "Designed to host several vendors' agents in one place"
           ]
+        },
+        "google": {
+          "bullets": [
+            "Clearest case that verification (tests plus evals) is what separates vibe coding from production engineering.",
+            "Explicit prototype vs production boundary is easy to adopt.",
+            "Treats prompts, evals and skills as reviewed, versioned code.",
+            "Vendor-neutral: names MCP, A2A and several rule-file formats."
+          ],
+          "links": []
         }
       }
     },
@@ -1045,6 +1236,15 @@
             "Thin on testing, deploy and maintenance",
             "Only one GitHub post was reviewed"
           ]
+        },
+        "google": {
+          "bullets": [
+            "Rated from secondary summaries; the Kaggle page did not render for us. Verify against the PDF.",
+            "No post-release loop, risk tiers, team model or delivery metrics in the summaries.",
+            "Evidence is external studies and surveys; one summary flags untraceable figures.",
+            "Conceptual, so teams still need to build the mechanics themselves."
+          ],
+          "links": []
         }
       }
     }
@@ -1069,65 +1269,69 @@
     {
       "label": "Third-party summary of OpenAI's guide (adds its own timeline and metrics)",
       "url": "https://codex.danielvaughan.com/2026/04/28/building-ai-native-engineering-teams-codex-cli-sdlc-adoption/"
+    },
+    {
+      "label": "Okane Land: fact-check of the Google paper's statistics",
+      "url": "https://okaneland.com/study/new-sdlc-with-vibe-coding/"
     }
   ],
   "summary": {
     "common": [
       {
         "title": "Plan before code",
-        "who": "All six",
-        "detail": "Every vendor puts a written plan or spec ahead of implementation: intent, spec and plan files (Anthropic), Inception (AWS), versioned specs (Atlassian), a Plan phase (OpenAI), Research and Plan (Microsoft), Plan Mode (GitHub)."
+        "who": "All seven",
+        "detail": "Every vendor puts a written plan or spec ahead of implementation: intent, spec and plan files (Anthropic), Inception (AWS), versioned specs (Atlassian), a Plan phase (OpenAI), Research and Plan (Microsoft), Plan Mode (GitHub), specs and tests first (Google)."
       },
       {
         "title": "Humans keep judgement, agents do the first pass",
-        "who": "All six",
+        "who": "All seven",
         "detail": "Agents plan, build and give first-pass review. People own intent, risk, final review and sign-off."
       },
       {
         "title": "Rules are written down where the agent reads them",
-        "who": "All six",
-        "detail": "CLAUDE.md and skills, steering files, AGENTS.md, instruction files. Atlassian does the same through a central context graph rather than repo files."
+        "who": "All seven",
+        "detail": "CLAUDE.md and skills, steering files, AGENTS.md, instruction files. Atlassian does the same through a central context graph rather than repo files. Google adds six context types."
       },
       {
         "title": "Measure the change",
-        "who": "Five of six",
-        "detail": "Anthropic, AWS, Atlassian, OpenAI and GitHub all name some way to measure. Depth varies. Microsoft's repo gives no outcome metrics."
+        "who": "Five of seven",
+        "detail": "Anthropic, AWS, Atlassian, OpenAI and GitHub all name some way to measure. Depth varies. Microsoft's repo gives no outcome metrics. Google measures the agent (evals, observability), not delivery."
       },
       {
         "title": "Start small, then expand",
-        "who": "Four of six",
-        "detail": "Anthropic, AWS, Atlassian and OpenAI advise starting with one stage, pilot or well-specified task."
+        "who": "Five of seven",
+        "detail": "Anthropic, AWS, Atlassian, OpenAI and Google advise starting with one stage, pilot or well-specified task."
       }
     ],
     "differences": [
       {
         "title": "How firmly rules are enforced",
-        "detail": "Anthropic describes deterministic enforcement (hooks, managed settings) and GitHub an admin control plane. AWS leans on pipeline gates and steering files. The rest say little."
+        "detail": "Anthropic describes deterministic enforcement (hooks, managed settings) and GitHub an admin control plane. AWS leans on pipeline gates and steering files. The rest say little. Google puts guardrails and hooks in the harness."
       },
       {
         "title": "Team and operating model",
-        "detail": "Only AWS prescribes one: AI Pods, mob sessions, new vocabulary. Anthropic, OpenAI and GitHub leave team structure open."
+        "detail": "Only AWS prescribes one: AI Pods, mob sessions, new vocabulary. Anthropic, OpenAI, GitHub and Google leave team structure open (Google treats prompts and evals as versioned code)."
       },
       {
         "title": "Closing the loop after release",
-        "detail": "Only Anthropic describes an autonomous loop where production signals become the next intent. AWS and Atlassian cover parts of it. OpenAI keeps engineers on sign-off. Microsoft and GitHub do not cover it."
+        "detail": "Only Anthropic describes an autonomous loop where production signals become the next intent. AWS and Atlassian cover parts of it. OpenAI keeps engineers on sign-off. Microsoft, GitHub and Google do not cover it."
       },
       {
         "title": "Where context lives",
-        "detail": "Anthropic, AWS, OpenAI and GitHub keep it in repo files. Atlassian builds a permissioned graph across Jira, Confluence and code."
+        "detail": "Anthropic, AWS, OpenAI, GitHub and Google keep it in repo files. Atlassian builds a permissioned graph across Jira, Confluence and code."
       },
       {
         "title": "Evidence offered",
-        "detail": "AWS, Atlassian and OpenAI quote outcomes, all vendor-reported. Anthropic, Microsoft and GitHub give none for delivery results."
+        "detail": "AWS, Atlassian and OpenAI quote outcomes, all vendor-reported. Google cites outside studies. Anthropic, Microsoft and GitHub give none for delivery results."
       },
       {
         "title": "Scope of the source",
-        "detail": "Anthropic and AWS publish methods. OpenAI publishes a guide. Atlassian skips Test and Deploy. Microsoft is a starter kit and GitHub a product announcement."
+        "detail": "Anthropic and AWS publish methods. OpenAI publishes a guide. Atlassian skips Test and Deploy. Microsoft is a starter kit and GitHub a product announcement. Google is a conceptual whitepaper."
       }
     ],
     "takeaway": [
       "Anthropic's playbook is the most implementable: strongest on enforceable controls, self-verification and closing the loop.",
-      "Others add what it lacks: AWS a team model and business case, Atlassian system-of-record context and measure-before-scaling, OpenAI a simple delegate, review, own framing.",
+      "Others add what it lacks: AWS a team model and business case, Atlassian system-of-record context and measure-before-scaling, OpenAI a simple delegate, review, own framing, Google a verification-first test for vibe coding vs production.",
       "The vendors agree on principles far more than on mechanics. Differences are mostly in enforcement, operating model and evidence."
     ]
   }
