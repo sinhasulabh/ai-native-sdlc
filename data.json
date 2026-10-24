@@ -102,24 +102,12 @@
     {
       "id": "google",
       "name": "Google",
-      "framework": "The New SDLC with Vibe Coding (May 2026, Kaggle)",
-      "status": "Reviewed via secondary summaries",
+      "framework": "The New SDLC With Vibe Coding (Day 1 paper, May 2026)",
+      "status": "Reviewed (primary PDF, Day 1 of 5)",
       "sources": [
         {
-          "label": "Whitepaper (Kaggle, page does not render without JavaScript)",
+          "label": "Whitepaper (Kaggle)",
           "url": "https://www.kaggle.com/whitepaper-the-new-SDLC-with-vibe-coding"
-        },
-        {
-          "label": "Okane Land summary",
-          "url": "https://okaneland.com/study/new-sdlc-with-vibe-coding/"
-        },
-        {
-          "label": "Working Software summary",
-          "url": "https://www.workingsoftware.dev/the-new-software-development-lifecycle-sdlc-from-vibe-coding-to-agentic-engineering/"
-        },
-        {
-          "label": "dev.to summary",
-          "url": "https://dev.to/jamilxt/googles-new-sdlc-whitepaper-from-vibe-coding-to-agentic-engineering-5a1l"
         }
       ]
     }
@@ -190,15 +178,11 @@
         },
         "google": {
           "rating": "similar",
-          "text": "Keeps the six traditional phases and shifts where time goes: requirements become a conversation that yields a spec, implementation compresses, review gains an AI first pass. The organising idea is a spectrum from vibe coding to agentic engineering, set by how outputs are verified.",
+          "text": "Keeps the six classic phases (requirements, design, implementation, testing, review and deployment, maintenance) and shifts where time goes: implementation compresses, requirements, architecture and verification stay human-paced. Organising idea is a spectrum from vibe coding to agentic engineering, set by how much structure and verification surround the AI. The paper says the phase boundaries may look different in 12 months.",
           "links": [
             {
-              "label": "Okane Land summary",
-              "url": "https://okaneland.com/study/new-sdlc-with-vibe-coding/"
-            },
-            {
-              "label": "Working Software summary",
-              "url": "https://www.workingsoftware.dev/the-new-software-development-lifecycle-sdlc-from-vibe-coding-to-agentic-engineering/"
+              "label": "Whitepaper: The new software development life cycle",
+              "url": "https://www.kaggle.com/whitepaper-the-new-SDLC-with-vibe-coding"
             }
           ]
         }
@@ -268,11 +252,11 @@
         },
         "google": {
           "rating": "similar",
-          "text": "Specs and architecture docs go in; agents implement; tests and gates verify; feedback loops send failures back. Presented as a 'factory' of artifacts, not a named set of files per stage.",
+          "text": "A 'factory model': specifications and context, agents, tests and quality gates, feedback loops, guardrails. Requirements become a conversation that yields a spec and first implementation together. No named artifact per stage; says only that clear handoff protocols should govern the human-agent boundary.",
           "links": [
             {
-              "label": "dev.to summary",
-              "url": "https://dev.to/jamilxt/googles-new-sdlc-whitepaper-from-vibe-coding-to-agentic-engineering-5a1l"
+              "label": "Whitepaper: The factory model",
+              "url": "https://www.kaggle.com/whitepaper-the-new-SDLC-with-vibe-coding"
             }
           ]
         }
@@ -342,15 +326,11 @@
         },
         "google": {
           "rating": "same",
-          "text": "Instruction files (AGENTS.md, CLAUDE.md, GEMINI.md) updated whenever the agent repeats a mistake. Six context types (instructions, knowledge, memory, examples, tools, guardrails), static or dynamic. Agent Skills load on demand.",
+          "text": "Six context types (instructions, knowledge, memory, examples, tools, guardrails), split into static (AGENTS.md, CLAUDE.md, GEMINI.md, always loaded) and dynamic (loaded on demand). Agent Skills load by progressive disclosure. Add a rule each time the agent repeats a mistake. Detail deferred to the Day 3 paper.",
           "links": [
             {
-              "label": "Working Software summary",
-              "url": "https://www.workingsoftware.dev/the-new-software-development-lifecycle-sdlc-from-vibe-coding-to-agentic-engineering/"
-            },
-            {
-              "label": "dev.to summary",
-              "url": "https://dev.to/jamilxt/googles-new-sdlc-whitepaper-from-vibe-coding-to-agentic-engineering-5a1l"
+              "label": "Whitepaper: Context engineering",
+              "url": "https://www.kaggle.com/whitepaper-the-new-SDLC-with-vibe-coding"
             }
           ]
         }
@@ -420,15 +400,11 @@
         },
         "google": {
           "rating": "similar",
-          "text": "Guardrails and hooks at lifecycle points, sandboxes, and CI/CD gates sit in the 'harness' around the model. No managed-settings style central policy described in the summaries.",
+          "text": "The harness includes hooks (deterministic code before a tool call, after an edit, before a commit; example: block a commit with a hard-coded password), sandboxes, scoped permissions per agent, and CI gates. No central managed-policy layer described.",
           "links": [
             {
-              "label": "Okane Land summary",
-              "url": "https://okaneland.com/study/new-sdlc-with-vibe-coding/"
-            },
-            {
-              "label": "dev.to summary",
-              "url": "https://dev.to/jamilxt/googles-new-sdlc-whitepaper-from-vibe-coding-to-agentic-engineering-5a1l"
+              "label": "Whitepaper: Harness engineering",
+              "url": "https://www.kaggle.com/whitepaper-the-new-SDLC-with-vibe-coding"
             }
           ]
         }
@@ -498,15 +474,11 @@
         },
         "google": {
           "rating": "same",
-          "text": "Humans specify, decompose, evaluate and own architecture and trade-offs; AI does implementation, test generation and first-pass review. Two modes: conductor (real-time pairing) and orchestrator (async delegation).",
+          "text": "Humans own intent, architecture, trade-offs and verification; agents implement. Two modes: conductor (real-time pairing) and orchestrator (async, parallel delegation). Names the '80% problem': agents write most of the code, the last 20% needs human context.",
           "links": [
             {
-              "label": "dev.to summary",
-              "url": "https://dev.to/jamilxt/googles-new-sdlc-whitepaper-from-vibe-coding-to-agentic-engineering-5a1l"
-            },
-            {
-              "label": "Okane Land summary",
-              "url": "https://okaneland.com/study/new-sdlc-with-vibe-coding/"
+              "label": "Whitepaper: Conductors and orchestrators",
+              "url": "https://www.kaggle.com/whitepaper-the-new-SDLC-with-vibe-coding"
             }
           ]
         }
@@ -576,11 +548,11 @@
         },
         "google": {
           "rating": "different-path",
-          "text": "No graded approval tiers. Instead draws one line: vibe coding for prototypes, agentic engineering with formal verification for production (a payment system should not be vibe coded).",
+          "text": "No graded approval tiers. Draws one explicit line instead: vibe coding for prototypes, agentic engineering for production, with a risk table per point on the spectrum. Leaders are told to make the boundary explicit by project, branch and environment.",
           "links": [
             {
-              "label": "Okane Land summary",
-              "url": "https://okaneland.com/study/new-sdlc-with-vibe-coding/"
+              "label": "Whitepaper: The spectrum",
+              "url": "https://www.kaggle.com/whitepaper-the-new-SDLC-with-vibe-coding"
             }
           ]
         }
@@ -650,15 +622,11 @@
         },
         "google": {
           "rating": "similar",
-          "text": "Tests and evals written before code; without both it counts as vibe coding. Output evals check the result, trajectory evals check the path. LLM judges and CI gates at the strict end. Review every shipped line.",
+          "text": "Tests check deterministic behaviour; evals check non-deterministic behaviour (trajectory, tool choice, final answer) with labelled datasets, rubrics and LM judges. Without both it is vibe coding. Write tests and evals before the code. A failing test is routed back to the model by the harness. Review every line that ships.",
           "links": [
             {
-              "label": "Okane Land summary",
-              "url": "https://okaneland.com/study/new-sdlc-with-vibe-coding/"
-            },
-            {
-              "label": "Working Software summary",
-              "url": "https://www.workingsoftware.dev/the-new-software-development-lifecycle-sdlc-from-vibe-coding-to-agentic-engineering/"
+              "label": "Whitepaper: The spectrum; Testing and QA",
+              "url": "https://www.kaggle.com/whitepaper-the-new-SDLC-with-vibe-coding"
             }
           ]
         }
@@ -727,12 +695,12 @@
           ]
         },
         "google": {
-          "rating": "not-covered",
-          "text": "Feedback loops and observability (logs, traces, evals, cost metering) are described, but the summaries do not describe production signals feeding the next piece of work.",
+          "rating": "different-path",
+          "text": "Partial and human-supervised. A 'quality flywheel' monitors production traffic for new failure modes; deployment agents can watch health and roll back; observability traces why an agent made a deployment decision. No autonomous loop where production signals become the next intent.",
           "links": [
             {
-              "label": "dev.to summary",
-              "url": "https://dev.to/jamilxt/googles-new-sdlc-whitepaper-from-vibe-coding-to-agentic-engineering-5a1l"
+              "label": "Whitepaper: Testing and QA; Code review and deployment",
+              "url": "https://www.kaggle.com/whitepaper-the-new-SDLC-with-vibe-coding"
             }
           ]
         }
@@ -806,15 +774,11 @@
         },
         "google": {
           "rating": "different-path",
-          "text": "No team model. Treat prompts, evals and skill libraries as versioned code, reviewed in PRs and owned by named engineers. Lists skills to build: specification, decomposition, evaluation design. Route large models to design, small ones to tests and review.",
+          "text": "Guidance, not a model. Treat AGENTS.md, prompts, eval suites and skills as code (PR-reviewed, versioned, owned by named engineers). Plan hybrid human-agent teams; evolve code review, on-call and team structures. Hire for specification, evaluation and judgement. Route big models to design, small models to tests and review.",
           "links": [
             {
-              "label": "dev.to summary",
-              "url": "https://dev.to/jamilxt/googles-new-sdlc-whitepaper-from-vibe-coding-to-agentic-engineering-5a1l"
-            },
-            {
-              "label": "Okane Land summary",
-              "url": "https://okaneland.com/study/new-sdlc-with-vibe-coding/"
+              "label": "Whitepaper: Where to start",
+              "url": "https://www.kaggle.com/whitepaper-the-new-SDLC-with-vibe-coding"
             }
           ]
         }
@@ -884,11 +848,11 @@
         },
         "google": {
           "rating": "different",
-          "text": "No delivery-metrics framework in the summaries. Measurement is about the agent: eval suites as the quality bar, observability, cost metering.",
+          "text": "No delivery-metrics framework. Measures the agent: eval rubrics (task success, tool-use quality, trajectory compliance, hallucination, response quality), observability for cost, latency and drift. Economics framed as CapEx vs OpEx and total cost of ownership.",
           "links": [
             {
-              "label": "Okane Land summary",
-              "url": "https://okaneland.com/study/new-sdlc-with-vibe-coding/"
+              "label": "Whitepaper: Where to start; The economics of AI development",
+              "url": "https://www.kaggle.com/whitepaper-the-new-SDLC-with-vibe-coding"
             }
           ]
         }
@@ -962,15 +926,11 @@
         },
         "google": {
           "rating": "similar",
-          "text": "Individuals: write a short AGENTS.md, add a rule per repeated mistake, turn one repetitive workflow into an agent, tests first. Leaders: version AI artifacts, make the prototype/production line explicit, adopt open standards (MCP, A2A).",
+          "text": "Six steps for individuals (ten-line AGENTS.md, install skills, turn one workflow into an agent, tests and evals first, review every line, keep skills sharp), five for leaders, five for organisations (invest before scale, build the production substrate first, adopt MCP and A2A, hybrid teams, hire for judgement).",
           "links": [
             {
-              "label": "dev.to summary",
-              "url": "https://dev.to/jamilxt/googles-new-sdlc-whitepaper-from-vibe-coding-to-agentic-engineering-5a1l"
-            },
-            {
-              "label": "Okane Land summary",
-              "url": "https://okaneland.com/study/new-sdlc-with-vibe-coding/"
+              "label": "Whitepaper: Where to start",
+              "url": "https://www.kaggle.com/whitepaper-the-new-SDLC-with-vibe-coding"
             }
           ]
         }
@@ -1040,10 +1000,10 @@
         },
         "google": {
           "rating": "different",
-          "text": "Conceptual whitepaper (about 50 pages) from a free Kaggle course. Principles and examples, not step-by-step plays or file templates, per the summaries.",
+          "text": "Conceptual framework plus one product example (Google's Agents CLI with sample commands). Practices such as spec-driven development, structured review, guardrails, sandboxing and zero-trust are deferred to the Day 5 companion paper; context, skills and memory to Day 3. Neither read here.",
           "links": [
             {
-              "label": "Whitepaper (Kaggle)",
+              "label": "Whitepaper: Vibe coding production-ready agents",
               "url": "https://www.kaggle.com/whitepaper-the-new-SDLC-with-vibe-coding"
             }
           ]
@@ -1114,8 +1074,12 @@
         },
         "google": {
           "rating": "different-path",
-          "text": "Cites external studies rather than its own delivery results: adoption surveys (85% use agents, 51% daily), a LangChain harness-only gain on Terminal-Bench, METR's 19% slowdown for experienced developers. One summary could not trace the 41% AI-code figure and calls the productivity ranges soft.",
+          "text": "No delivery results of its own. Cites adoption surveys (85% use agents, 51% daily, 41% of new code AI-generated), 25 to 39% productivity gains, METR's 19% slowdown, and a harness-only jump on Terminal Bench 2.0. Endnotes point to marketing and consultancy blogs for several figures, so treat the numbers as indicative.",
           "links": [
+            {
+              "label": "Whitepaper: endnotes",
+              "url": "https://www.kaggle.com/whitepaper-the-new-SDLC-with-vibe-coding"
+            },
             {
               "label": "Okane Land fact-check",
               "url": "https://okaneland.com/study/new-sdlc-with-vibe-coding/"
@@ -1176,10 +1140,11 @@
         },
         "google": {
           "bullets": [
-            "Clearest case that verification (tests plus evals) is what separates vibe coding from production engineering.",
-            "Explicit prototype vs production boundary is easy to adopt.",
-            "Treats prompts, evals and skills as reviewed, versioned code.",
-            "Vendor-neutral: names MCP, A2A and several rule-file formats."
+            "Clearest statement that tests plus evals separate vibe coding from engineering, with a spectrum table teams can use to place work.",
+            "Explicit prototype vs production boundary, easy to adopt.",
+            "Harness framing ties each SDLC phase to concrete components (rules, tools, sandboxes, hooks, observability).",
+            "Economics section (CapEx vs OpEx, context as a cost lever, model routing) speaks to leaders.",
+            "Vendor-neutral on rule files, MCP and A2A."
           ],
           "links": []
         }
@@ -1239,10 +1204,11 @@
         },
         "google": {
           "bullets": [
-            "Rated from secondary summaries; the Kaggle page did not render for us. Verify against the PDF.",
-            "No post-release loop, risk tiers, team model or delivery metrics in the summaries.",
-            "Evidence is external studies and surveys; one summary flags untraceable figures.",
-            "Conceptual, so teams still need to build the mechanics themselves."
+            "Day 1 of a five-day series: skills, memory and spec-driven production practice live in Day 3 and Day 5 papers we have not read.",
+            "No graded approval tiers, delivery metrics or autonomous post-release loop.",
+            "Conceptual; teams still build the mechanics themselves.",
+            "Statistics come from secondary blogs; the paper offers no data of its own.",
+            "Product examples lean on Google's Agents CLI and ADK."
           ],
           "links": []
         }
@@ -1310,11 +1276,11 @@
       },
       {
         "title": "Team and operating model",
-        "detail": "Only AWS prescribes one: AI Pods, mob sessions, new vocabulary. Anthropic, OpenAI, GitHub and Google leave team structure open (Google treats prompts and evals as versioned code)."
+        "detail": "Only AWS prescribes a team model: AI Pods, mob sessions, new vocabulary. Google gives hybrid-team and hiring guidance without a model. Anthropic, OpenAI and GitHub leave team structure open."
       },
       {
         "title": "Closing the loop after release",
-        "detail": "Only Anthropic describes an autonomous loop where production signals become the next intent. AWS and Atlassian cover parts of it. OpenAI keeps engineers on sign-off. Microsoft, GitHub and Google do not cover it."
+        "detail": "Only Anthropic describes an autonomous loop where production signals become the next intent. AWS, Atlassian and Google cover parts of it, with humans in the loop. OpenAI keeps engineers on sign-off. Microsoft and GitHub do not cover it."
       },
       {
         "title": "Where context lives",
@@ -1326,7 +1292,7 @@
       },
       {
         "title": "Scope of the source",
-        "detail": "Anthropic and AWS publish methods. OpenAI publishes a guide. Atlassian skips Test and Deploy. Microsoft is a starter kit and GitHub a product announcement. Google is a conceptual whitepaper."
+        "detail": "Anthropic and AWS publish methods. OpenAI publishes a guide. Google publishes a conceptual paper (Day 1 of a five-day series). Atlassian skips Test and Deploy. Microsoft is a starter kit and GitHub a product announcement."
       }
     ],
     "takeaway": [
