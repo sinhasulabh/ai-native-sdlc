@@ -102,12 +102,16 @@
     {
       "id": "google",
       "name": "Google",
-      "framework": "The New SDLC With Vibe Coding (Day 1 paper, May 2026)",
-      "status": "Reviewed (primary PDF, Day 1 of 5)",
+      "framework": "The New SDLC With Vibe Coding (Day 1) and Spec-Driven Production-Grade Development (Day 5), 2026",
+      "status": "Day 1 paper read in full; Day 5 via podcast transcript",
       "sources": [
         {
-          "label": "Whitepaper (Kaggle)",
+          "label": "Day 1 whitepaper (Kaggle)",
           "url": "https://www.kaggle.com/whitepaper-the-new-SDLC-with-vibe-coding"
+        },
+        {
+          "label": "Day 5 podcast: summary page of the transcript reviewed",
+          "url": "https://videohighlight.com/v/VSRdL4wlbLY"
         }
       ]
     }
@@ -178,11 +182,15 @@
         },
         "google": {
           "rating": "similar",
-          "text": "Keeps the six classic phases (requirements, design, implementation, testing, review and deployment, maintenance) and shifts where time goes: implementation compresses, requirements, architecture and verification stay human-paced. Organising idea is a spectrum from vibe coding to agentic engineering, set by how much structure and verification surround the AI. The paper says the phase boundaries may look different in 12 months.",
+          "text": "Day 1 keeps the six classic phases and shifts where time goes; implementation compresses, requirements, architecture and verification stay human-paced. Organising idea is a spectrum from vibe coding to agentic engineering. Day 5 adds working modes by task instead of phase: architect (new project), builder (new feature), forensic (bug fix), plus author (docs) and librarian (SQL).",
           "links": [
             {
-              "label": "Whitepaper: The new software development life cycle",
+              "label": "Day 1 whitepaper (Kaggle)",
               "url": "https://www.kaggle.com/whitepaper-the-new-SDLC-with-vibe-coding"
+            },
+            {
+              "label": "Day 5 podcast (summary page)",
+              "url": "https://videohighlight.com/v/VSRdL4wlbLY"
             }
           ]
         }
@@ -252,11 +260,15 @@
         },
         "google": {
           "rating": "similar",
-          "text": "A 'factory model': specifications and context, agents, tests and quality gates, feedback loops, guardrails. Requirements become a conversation that yields a spec and first implementation together. No named artifact per stage; says only that clear handoff protocols should govern the human-agent boundary.",
+          "text": "Day 1: a 'factory' of specs, agents, tests, gates and feedback loops. Day 5 makes the spec the source of truth: a spec folder checked into version control, written as markdown with conditional YAML and Gherkin given/when/then. Code is treated as disposable and regenerable from the spec.",
           "links": [
             {
-              "label": "Whitepaper: The factory model",
+              "label": "Day 1 whitepaper (Kaggle)",
               "url": "https://www.kaggle.com/whitepaper-the-new-SDLC-with-vibe-coding"
+            },
+            {
+              "label": "Day 5 podcast (summary page)",
+              "url": "https://videohighlight.com/v/VSRdL4wlbLY"
             }
           ]
         }
@@ -326,11 +338,15 @@
         },
         "google": {
           "rating": "same",
-          "text": "Six context types (instructions, knowledge, memory, examples, tools, guardrails), split into static (AGENTS.md, CLAUDE.md, GEMINI.md, always loaded) and dynamic (loaded on demand). Agent Skills load by progressive disclosure. Add a rule each time the agent repeats a mistake. Detail deferred to the Day 3 paper.",
+          "text": "Six context types, static (AGENTS.md, CLAUDE.md, GEMINI.md) vs dynamic (Agent Skills, progressive disclosure). Day 5 adds a layered architecture: chat for short-lived orchestration, versioned spec folder, a skills directory of reusable workflows (e.g. always update the changelog), and system prompts at global, team and project level.",
           "links": [
             {
-              "label": "Whitepaper: Context engineering",
+              "label": "Day 1 whitepaper (Kaggle)",
               "url": "https://www.kaggle.com/whitepaper-the-new-SDLC-with-vibe-coding"
+            },
+            {
+              "label": "Day 5 podcast (summary page)",
+              "url": "https://videohighlight.com/v/VSRdL4wlbLY"
             }
           ]
         }
@@ -400,11 +416,15 @@
         },
         "google": {
           "rating": "similar",
-          "text": "The harness includes hooks (deterministic code before a tool call, after an edit, before a commit; example: block a commit with a hard-coded password), sandboxes, scoped permissions per agent, and CI gates. No central managed-policy layer described.",
+          "text": "Same principle as Anthropic: do not rely on prompt rules. Day 1: hooks and sandboxes. Day 5 adds ephemeral low-privilege sandboxes and a policy server with two gates: structural (binary YAML rules by role and environment) and semantic (a second LLM checks the action against written guidelines, e.g. blocks an email with unmasked personal data). Also a context resolver that swaps data placeholders for authorised test assets.",
           "links": [
             {
-              "label": "Whitepaper: Harness engineering",
+              "label": "Day 1 whitepaper (Kaggle)",
               "url": "https://www.kaggle.com/whitepaper-the-new-SDLC-with-vibe-coding"
+            },
+            {
+              "label": "Day 5 podcast (summary page)",
+              "url": "https://videohighlight.com/v/VSRdL4wlbLY"
             }
           ]
         }
@@ -474,11 +494,15 @@
         },
         "google": {
           "rating": "same",
-          "text": "Humans own intent, architecture, trade-offs and verification; agents implement. Two modes: conductor (real-time pairing) and orchestrator (async, parallel delegation). Names the '80% problem': agents write most of the code, the last 20% needs human context.",
+          "text": "Humans own intent, architecture, trade-offs and verification. Conductor and orchestrator modes. The '80% problem'. Day 5 shifts the role to writing specs and 'negotiating' with agents, and in forensic mode requires evidence (logs, a failing test or curl command) before any fix.",
           "links": [
             {
-              "label": "Whitepaper: Conductors and orchestrators",
+              "label": "Day 1 whitepaper (Kaggle)",
               "url": "https://www.kaggle.com/whitepaper-the-new-SDLC-with-vibe-coding"
+            },
+            {
+              "label": "Day 5 podcast (summary page)",
+              "url": "https://videohighlight.com/v/VSRdL4wlbLY"
             }
           ]
         }
@@ -548,11 +572,15 @@
         },
         "google": {
           "rating": "different-path",
-          "text": "No graded approval tiers. Draws one explicit line instead: vibe coding for prototypes, agentic engineering for production, with a risk table per point on the spectrum. Leaders are told to make the boundary explicit by project, branch and environment.",
+          "text": "No risk bands. Approval depends on mode: architect mode forbids auto-approve, proposes folder structure and pins library versions; builder mode confirms diffs line by line. Day 5 adds conditional LGTM (human approves core logic, merge is automatic if tests pass) and a prototype vs production line. The policy server gates by role and environment.",
           "links": [
             {
-              "label": "Whitepaper: The spectrum",
+              "label": "Day 1 whitepaper (Kaggle)",
               "url": "https://www.kaggle.com/whitepaper-the-new-SDLC-with-vibe-coding"
+            },
+            {
+              "label": "Day 5 podcast (summary page)",
+              "url": "https://videohighlight.com/v/VSRdL4wlbLY"
             }
           ]
         }
@@ -622,11 +650,15 @@
         },
         "google": {
           "rating": "similar",
-          "text": "Tests check deterministic behaviour; evals check non-deterministic behaviour (trajectory, tool choice, final answer) with labelled datasets, rubrics and LM judges. Without both it is vibe coding. Write tests and evals before the code. A failing test is routed back to the model by the harness. Review every line that ships.",
+          "text": "Tests for deterministic behaviour, evals for the rest (trajectory, tool choice, final answer), with rubrics and LM judges. Day 5: evaluation uses an LLM judge with tolerance bands against a baseline to catch behavioural drift. Forensic mode requires a failing test before a fix. Tests and evals first, review every line that ships.",
           "links": [
             {
-              "label": "Whitepaper: The spectrum; Testing and QA",
+              "label": "Day 1 whitepaper (Kaggle)",
               "url": "https://www.kaggle.com/whitepaper-the-new-SDLC-with-vibe-coding"
+            },
+            {
+              "label": "Day 5 podcast (summary page)",
+              "url": "https://videohighlight.com/v/VSRdL4wlbLY"
             }
           ]
         }
@@ -774,11 +806,15 @@
         },
         "google": {
           "rating": "different-path",
-          "text": "Guidance, not a model. Treat AGENTS.md, prompts, eval suites and skills as code (PR-reviewed, versioned, owned by named engineers). Plan hybrid human-agent teams; evolve code review, on-call and team structures. Hire for specification, evaluation and judgement. Route big models to design, small models to tests and review.",
+          "text": "Guidance, not a model. Treat prompts, evals and skills as versioned, owned code; plan hybrid human-agent teams; hire for judgement. Day 5 is the only source on human load: approval fatigue, a no-blame culture (blame the integration, not the person), digital quiet hours, weekly agent-insight sessions, bundled summaries and an AI-written risk assessment of each PR.",
           "links": [
             {
-              "label": "Whitepaper: Where to start",
+              "label": "Day 1 whitepaper (Kaggle)",
               "url": "https://www.kaggle.com/whitepaper-the-new-SDLC-with-vibe-coding"
+            },
+            {
+              "label": "Day 5 podcast (summary page)",
+              "url": "https://videohighlight.com/v/VSRdL4wlbLY"
             }
           ]
         }
@@ -848,11 +884,15 @@
         },
         "google": {
           "rating": "different",
-          "text": "No delivery-metrics framework. Measures the agent: eval rubrics (task success, tool-use quality, trajectory compliance, hallucination, response quality), observability for cost, latency and drift. Economics framed as CapEx vs OpEx and total cost of ownership.",
+          "text": "No delivery-metrics framework. Day 1: eval rubrics, observability for cost, latency and drift. Day 5: tolerance bands against a baseline, and a burnout statistic (frequent AI users 45% more likely) as the case for review changes.",
           "links": [
             {
-              "label": "Whitepaper: Where to start; The economics of AI development",
+              "label": "Day 1 whitepaper (Kaggle)",
               "url": "https://www.kaggle.com/whitepaper-the-new-SDLC-with-vibe-coding"
+            },
+            {
+              "label": "Day 5 podcast (summary page)",
+              "url": "https://videohighlight.com/v/VSRdL4wlbLY"
             }
           ]
         }
@@ -999,12 +1039,16 @@
           ]
         },
         "google": {
-          "rating": "different",
-          "text": "Conceptual framework plus one product example (Google's Agents CLI with sample commands). Practices such as spec-driven development, structured review, guardrails, sandboxing and zero-trust are deferred to the Day 5 companion paper; context, skills and memory to Day 3. Neither read here.",
+          "rating": "different-path",
+          "text": "Patterns with concrete examples, not numbered plays. Day 1 includes Agents CLI commands. Day 5 adds a Gherkin spec format, three reviewer tiers, a policy-server design, a 40-line MCP SQLite server example, and a graph-based code understanding design. Day 3 (skills, memory) is not read.",
           "links": [
             {
-              "label": "Whitepaper: Vibe coding production-ready agents",
+              "label": "Day 1 whitepaper (Kaggle)",
               "url": "https://www.kaggle.com/whitepaper-the-new-SDLC-with-vibe-coding"
+            },
+            {
+              "label": "Day 5 podcast (summary page)",
+              "url": "https://videohighlight.com/v/VSRdL4wlbLY"
             }
           ]
         }
@@ -1074,14 +1118,18 @@
         },
         "google": {
           "rating": "different-path",
-          "text": "No delivery results of its own. Cites adoption surveys (85% use agents, 51% daily, 41% of new code AI-generated), 25 to 39% productivity gains, METR's 19% slowdown, and a harness-only jump on Terminal Bench 2.0. Endnotes point to marketing and consultancy blogs for several figures, so treat the numbers as indicative.",
+          "text": "No delivery results of its own. Day 1 cites adoption surveys, 25 to 39% productivity gains, METR's 19% slowdown and a Terminal Bench harness result; endnotes point to blogs. Day 5 (per the podcast) adds a cautionary case (an auto-approve agent emailed 50 colleagues), a claimed 2 weeks to hours legacy refactor, and a 2026 study on spec formats. Unverified.",
           "links": [
             {
-              "label": "Whitepaper: endnotes",
+              "label": "Day 1 endnotes (Kaggle)",
               "url": "https://www.kaggle.com/whitepaper-the-new-SDLC-with-vibe-coding"
             },
             {
-              "label": "Okane Land fact-check",
+              "label": "Day 5 podcast (summary page)",
+              "url": "https://videohighlight.com/v/VSRdL4wlbLY"
+            },
+            {
+              "label": "Okane Land fact-check of Day 1",
               "url": "https://okaneland.com/study/new-sdlc-with-vibe-coding/"
             }
           ]
@@ -1140,11 +1188,11 @@
         },
         "google": {
           "bullets": [
-            "Clearest statement that tests plus evals separate vibe coding from engineering, with a spectrum table teams can use to place work.",
-            "Explicit prototype vs production boundary, easy to adopt.",
-            "Harness framing ties each SDLC phase to concrete components (rules, tools, sandboxes, hooks, observability).",
-            "Economics section (CapEx vs OpEx, context as a cost lever, model routing) speaks to leaders.",
-            "Vendor-neutral on rule files, MCP and A2A."
+            "Clearest test for vibe coding vs engineering: tests plus evals, and a spectrum table to place work.",
+            "Enforcement beyond hooks: sandboxes plus a policy server with a semantic (LLM referee) gate.",
+            "Only source to treat human review load as a design problem: approval fatigue, bundled summaries, conditional LGTM, no-blame culture.",
+            "Three-tier AI reviewer model (managed, hybrid CI, custom) with a graph-based design for large legacy code.",
+            "Economics (CapEx vs OpEx, context as a cost lever, model routing) speaks to leaders."
           ],
           "links": []
         }
@@ -1204,11 +1252,11 @@
         },
         "google": {
           "bullets": [
-            "Day 1 of a five-day series: skills, memory and spec-driven production practice live in Day 3 and Day 5 papers we have not read.",
-            "No graded approval tiers, delivery metrics or autonomous post-release loop.",
-            "Conceptual; teams still build the mechanics themselves.",
-            "Statistics come from secondary blogs; the paper offers no data of its own.",
-            "Product examples lean on Google's Agents CLI and ADK."
+            "Day 5 is read via a podcast transcript, not the paper; its statistics are unverified. Day 3 and Day 4 papers are not read.",
+            "No graded risk bands, delivery metrics or autonomous post-release loop.",
+            "Day 1 statistics come from secondary blogs; the papers offer little data of their own.",
+            "Product examples lean on Google tooling (Agents CLI, Gemini Code Assist, Antigravity, Vertex AI, Spanner).",
+            "Treating code as disposable is a strong claim that depends on very high spec quality."
           ],
           "links": []
         }
@@ -1237,7 +1285,7 @@
       "url": "https://codex.danielvaughan.com/2026/04/28/building-ai-native-engineering-teams-codex-cli-sdlc-adoption/"
     },
     {
-      "label": "Okane Land: fact-check of the Google paper's statistics",
+      "label": "Okane Land: fact-check of the Google Day 1 paper's statistics",
       "url": "https://okaneland.com/study/new-sdlc-with-vibe-coding/"
     }
   ],
@@ -1272,11 +1320,11 @@
     "differences": [
       {
         "title": "How firmly rules are enforced",
-        "detail": "Anthropic describes deterministic enforcement (hooks, managed settings) and GitHub an admin control plane. AWS leans on pipeline gates and steering files. The rest say little. Google puts guardrails and hooks in the harness."
+        "detail": "Anthropic describes deterministic enforcement (hooks, managed settings) and GitHub an admin control plane. AWS leans on pipeline gates and steering files. Google (Day 5) adds sandboxes and a policy server with a second-LLM semantic gate. The rest say little."
       },
       {
         "title": "Team and operating model",
-        "detail": "Only AWS prescribes a team model: AI Pods, mob sessions, new vocabulary. Google gives hybrid-team and hiring guidance without a model. Anthropic, OpenAI and GitHub leave team structure open."
+        "detail": "Only AWS prescribes a team model: AI Pods, mob sessions, new vocabulary. Google gives hybrid-team and hiring guidance and is the only source on reviewer burnout and approval fatigue. Anthropic, OpenAI and GitHub leave team structure open."
       },
       {
         "title": "Closing the loop after release",
@@ -1284,7 +1332,7 @@
       },
       {
         "title": "Where context lives",
-        "detail": "Anthropic, AWS, OpenAI, GitHub and Google keep it in repo files. Atlassian builds a permissioned graph across Jira, Confluence and code."
+        "detail": "Anthropic, AWS, OpenAI, GitHub and Google keep it in repo files. Atlassian builds a permissioned graph across Jira, Confluence and code. Google's Day 5 design uses a code knowledge graph for very large legacy codebases."
       },
       {
         "title": "Evidence offered",
