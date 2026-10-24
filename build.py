@@ -65,6 +65,57 @@ tp_items = "".join(f'<li>{links([t])}</li>' for t in d.get("third_party", []))
 pending = ", ".join(e(x) for x in d.get("pending", []))
 nextup = f" &middot; Coming next: {pending}" if pending else ""
 
+
+# ---- summary section (computed counts + written patterns) ----
+sm = d.get("summary", {})
+content_rows = [r for r in d["rows"] if not r.get("assessment")]
+order = ["same", "similar", "different-path", "different", "not-covered"]
+bars = []
+for v in vendors:
+    if v["id"] == d["baseline"]:
+        continue
+    counts = {k: 0 for k in order}
+    for r in content_rows:
+        counts[r["cells"][v["id"]]["rating"]] += 1
+    n = len(content_rows)
+    segs = "".join(
+        f'<span class="seg {RATINGS[k][1]}" style="flex:{counts[k]}" title="{e(RATINGS[k][0])}: {counts[k]}">{counts[k]}</span>'
+        for k in order if counts[k]
+    )
+    close = counts["same"] + counts["similar"]
+    bars.append(
+        f'<div class="bar"><div class="bname">{e(v["name"])}</div>'
+        f'<div class="track" role="img" aria-label="{e(v["name"])}: '
+        + ", ".join(f"{counts[k]} {RATINGS[k][0].lower()}" for k in order if counts[k])
+        + f'">{segs}</div><div class="bnote">{close} of {n} close to baseline</div></div>'
+    )
+
+def cards(items, with_who):
+    out = []
+    for it in items:
+        who = f'<span class="who">{e(it["who"])}</span>' if with_who else ""
+        out.append(f'<li><div class="ct">{e(it["title"])}{who}</div><p>{e(it["detail"])}</p></li>')
+    return "".join(out)
+
+summary_html = ""
+if sm:
+    summary_html = (
+        '<section class="summary" aria-labelledby="sum-h">'
+        '<h2 id="sum-h">The short version</h2>'
+        '<div class="cols">'
+        f'<div><h3>Where they agree</h3><ul class="cards">{cards(sm["common"], True)}</ul></div>'
+        f'<div><h3>Where they differ</h3><ul class="cards">{cards(sm["differences"], False)}</ul></div>'
+        '</div>'
+        '<div class="take"><h3>Our read (assessment)</h3><ul>'
+        + "".join(f"<li>{e(t)}</li>" for t in sm["takeaway"]) +
+        '</ul></div>'
+        '<h3>How closely each vendor matches Anthropic, topic by topic</h3>'
+        f'<div class="bars">{"".join(bars)}</div>'
+        '<p class="bars-note">"Close to baseline" means rated Same or Similar. Counts are table rows per rating, out of '
+        f'{len(content_rows)}. Computed from the table below.</p>'
+        '</section>'
+    )
+
 page = f"""<!doctype html>
 <html lang="en">
 <head>
@@ -143,6 +194,31 @@ td.r-none {{ background:var(--none); }}  td.r-none .badge {{ color:var(--none-b)
 tr.assess td {{ background:transparent; }}
 tr.assess th[scope=row] {{ color:var(--accent); }}
 h2 {{ font:700 1.2rem/1.3 Georgia,serif; margin:40px 0 10px; }}
+.summary {{ margin:0 0 32px; }}
+.summary h2 {{ margin-top:0; }}
+.summary h3 {{ font:700 .95rem/1.3 system-ui,sans-serif; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); margin:18px 0 8px; }}
+.cols {{ display:grid; grid-template-columns:1fr 1fr; gap:24px; }}
+@media (max-width:820px) {{ .cols {{ grid-template-columns:1fr; }} }}
+.cards {{ list-style:none; margin:0; padding:0; display:grid; gap:10px; }}
+.cards li {{ background:var(--card); border:1px solid var(--line); border-radius:8px; padding:10px 14px; }}
+.cards p {{ margin:4px 0 0; font-size:.9rem; }}
+.ct {{ font-weight:700; font-size:.95rem; display:flex; justify-content:space-between; gap:10px; align-items:baseline; }}
+.who {{ font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.03em; color:var(--same-b); border:1.5px solid currentColor; border-radius:99px; padding:1px 8px; white-space:nowrap; }}
+.take {{ background:var(--card); border:1px solid var(--line); border-left:4px solid var(--accent); border-radius:6px; padding:4px 16px 8px; margin-top:20px; }}
+.take ul {{ margin:0; padding-left:18px; }} .take li {{ margin-bottom:6px; }}
+.bars {{ display:grid; gap:8px; }}
+.bar {{ display:grid; grid-template-columns:90px 1fr 190px; gap:10px; align-items:center; font-size:.85rem; }}
+@media (max-width:640px) {{ .bar {{ grid-template-columns:70px 1fr; }} .bnote {{ grid-column:1 / -1; }} }}
+.bname {{ font-weight:600; }}
+.track {{ display:flex; height:26px; border-radius:5px; overflow:hidden; border:1px solid var(--line); }}
+.seg {{ display:flex; align-items:center; justify-content:center; font-weight:700; font-size:.78rem; min-width:22px; }}
+.seg.r-same {{ background:var(--same); color:var(--same-b); }}
+.seg.r-similar {{ background:var(--similar); color:var(--similar-b); }}
+.seg.r-path {{ background:var(--path); color:var(--path-b); }}
+.seg.r-diff {{ background:var(--diff); color:var(--diff-b); }}
+.seg.r-none {{ background:var(--none); color:var(--none-b); }}
+.bnote {{ color:var(--muted); }} .bars-note {{ color:var(--muted); font-size:.8rem; margin:8px 0 0; }}
+
 .src {{ padding-left:18px; }} .src li {{ margin-bottom:6px; }}
 .pending {{ color:var(--muted); font-size:.92rem; }}
 footer {{ margin-top:40px; color:var(--muted); font-size:.82rem; border-top:1px solid var(--line); padding-top:16px; }}
@@ -156,6 +232,8 @@ footer {{ margin-top:40px; color:var(--muted); font-size:.82rem; border-top:1px 
   <p class="sub">What each vendor recommends for an AI-native software development lifecycle, and where they agree or differ. Anthropic's playbook is used as the baseline; every other vendor is rated against it.</p>
   <p class="meta">Last updated {e(d["updated"])} &middot; Vendors reviewed: {", ".join(e(v["name"]) for v in vendors)}{nextup}</p>
   <div class="note"><strong>How to read this.</strong> Rows marked "our assessment" are the author's judgement, not vendor claims. Colour shows how a vendor's approach relates to the baseline; the label in each cell says the same in words. Each cell links to the section it is based on.</div>
+  {summary_html}
+  <h2 id="table-h" style="margin-top:8px">The full comparison</h2>
   <ul class="legend" aria-label="Colour legend">{legend}</ul>
   <div class="scroll">
   <table>
