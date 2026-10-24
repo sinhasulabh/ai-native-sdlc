@@ -12,6 +12,7 @@ RATINGS = {
     "similar": ("Similar", "r-similar"),
     "different-path": ("Different path, same outcome", "r-path"),
     "different": ("Completely different", "r-diff"),
+    "not-covered": ("Not covered in sources", "r-none"),
 }
 
 def links(ls):
@@ -62,6 +63,7 @@ src_items = "".join(
 )
 tp_items = "".join(f'<li>{links([t])}</li>' for t in d.get("third_party", []))
 pending = ", ".join(e(x) for x in d.get("pending", []))
+nextup = f" &middot; Coming next: {pending}" if pending else ""
 
 page = f"""<!doctype html>
 <html lang="en">
@@ -79,6 +81,7 @@ page = f"""<!doctype html>
   --path:#fff1d6;     --path-b:#b9770e;
   --diff:#fbe3e0;     --diff-b:#b23a2e;
   --base:#eef0f5;     --base-b:#4a5a85;
+  --none:#f0efec;     --none-b:#6b6a66;
 }}
 @media (prefers-color-scheme: dark) {{
   :root {{
@@ -89,6 +92,7 @@ page = f"""<!doctype html>
     --path:#3a2c10;    --path-b:#e6a23c;
     --diff:#3d1f1b;    --diff-b:#ec7a6c;
     --base:#232738;    --base-b:#8fa0d6;
+    --none:#262624;    --none-b:#a3a198;
   }}
 }}
 * {{ box-sizing:border-box; }}
@@ -108,12 +112,14 @@ h1 {{ font:700 clamp(1.6rem,4vw,2.3rem)/1.15 Georgia,"Times New Roman",serif; ma
 .legend .r-similar .swatch {{ background:var(--similar); border-color:var(--similar-b); }}
 .legend .r-path .swatch {{ background:var(--path); border-color:var(--path-b); }}
 .legend .r-diff .swatch {{ background:var(--diff); border-color:var(--diff-b); }}
+.legend .r-none .swatch {{ background:var(--none); border-color:var(--none-b); border-style:dashed; }}
 .scroll {{ overflow-x:auto; border:1px solid var(--line); border-radius:8px; background:var(--card); }}
-table {{ border-collapse:separate; border-spacing:0; width:100%; min-width:760px; }}
+table {{ border-collapse:separate; border-spacing:0; width:100%; min-width:{170 + 300*len(vendors)}px; table-layout:fixed; }}
 thead th {{ position:sticky; top:0; z-index:2; background:var(--card); text-align:left;
   padding:14px 14px; border-bottom:2px solid var(--line); vertical-align:bottom; }}
 .vname {{ font-weight:700; font-size:1.1rem; }}
 .vfw {{ font-weight:400; font-size:.8rem; color:var(--muted); margin-top:2px; }}
+thead th:first-child {{ width:170px; }}
 tbody th[scope=row] {{ text-align:left; width:170px; padding:14px; vertical-align:top;
   font-weight:600; font-size:.92rem; border-bottom:1px solid var(--line);
   background:var(--card); position:sticky; left:0; z-index:1; }}
@@ -133,6 +139,7 @@ td.r-same {{ background:var(--same); }}  td.r-same .badge {{ color:var(--same-b)
 td.r-similar {{ background:var(--similar); }} td.r-similar .badge {{ color:var(--similar-b); }}
 td.r-path {{ background:var(--path); }}  td.r-path .badge {{ color:var(--path-b); }}
 td.r-diff {{ background:var(--diff); }}  td.r-diff .badge {{ color:var(--diff-b); }}
+td.r-none {{ background:var(--none); }}  td.r-none .badge {{ color:var(--none-b); border-style:dashed; }}
 tr.assess td {{ background:transparent; }}
 tr.assess th[scope=row] {{ color:var(--accent); }}
 h2 {{ font:700 1.2rem/1.3 Georgia,serif; margin:40px 0 10px; }}
@@ -147,7 +154,7 @@ footer {{ margin-top:40px; color:var(--muted); font-size:.82rem; border-top:1px 
 <main class="wrap">
   <h1>{e(d["title"])}</h1>
   <p class="sub">What each vendor recommends for an AI-native software development lifecycle, and where they agree or differ. Anthropic's playbook is used as the baseline; every other vendor is rated against it.</p>
-  <p class="meta">Last updated {e(d["updated"])} &middot; Vendors reviewed: {", ".join(e(v["name"]) for v in vendors)} &middot; Coming next: {pending}</p>
+  <p class="meta">Last updated {e(d["updated"])} &middot; Vendors reviewed: {", ".join(e(v["name"]) for v in vendors)}{nextup}</p>
   <div class="note"><strong>How to read this.</strong> Rows marked "our assessment" are the author's judgement, not vendor claims. Colour shows how a vendor's approach relates to the baseline; the label in each cell says the same in words. Each cell links to the section it is based on.</div>
   <ul class="legend" aria-label="Colour legend">{legend}</ul>
   <div class="scroll">

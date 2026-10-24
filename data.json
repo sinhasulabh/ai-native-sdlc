@@ -9,9 +9,18 @@
       "framework": "The AI-native SDLC playbook (Aug 2026)",
       "status": "Baseline",
       "sources": [
-        {"label": "Playbook (article)", "url": "https://claude.com/resources/articles/the-ai-native-sdlc-playbook"},
-        {"label": "Playbook (PDF)", "url": "https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6aba736348bdf4f08183f463_AI%20Native%20SDLC%20Playbook_designv2%20%281%29.pdf"},
-        {"label": "Claude Academy course", "url": "https://academy.claude.com/courses/ai-native-sdlc-playbook"}
+        {
+          "label": "Playbook (article)",
+          "url": "https://claude.com/resources/articles/the-ai-native-sdlc-playbook"
+        },
+        {
+          "label": "Playbook (PDF)",
+          "url": "https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6aba736348bdf4f08183f463_AI%20Native%20SDLC%20Playbook_designv2%20%281%29.pdf"
+        },
+        {
+          "label": "Claude Academy course",
+          "url": "https://academy.claude.com/courses/ai-native-sdlc-playbook"
+        }
       ]
     },
     {
@@ -20,24 +29,140 @@
       "framework": "AI-Driven Development Life Cycle, AI-DLC (Jul 2025; FS post May 2026)",
       "status": "Reviewed",
       "sources": [
-        {"label": "AI-DLC announcement (Jul 2025)", "url": "https://aws.amazon.com/blogs/devops/ai-driven-development-life-cycle/"},
-        {"label": "AI-DLC for Financial Services (May 2026)", "url": "https://aws.amazon.com/blogs/industries/ai-driven-development-lifecycle-for-financial-services/"}
+        {
+          "label": "AI-DLC announcement (Jul 2025)",
+          "url": "https://aws.amazon.com/blogs/devops/ai-driven-development-life-cycle/"
+        },
+        {
+          "label": "AI-DLC for Financial Services (May 2026)",
+          "url": "https://aws.amazon.com/blogs/industries/ai-driven-development-lifecycle-for-financial-services/"
+        }
+      ]
+    },
+    {
+      "id": "atlassian",
+      "name": "Atlassian",
+      "framework": "The AI SDLC transformation playbook (Oct 2026)",
+      "status": "Reviewed",
+      "sources": [
+        {
+          "label": "AI SDLC transformation playbook",
+          "url": "https://www.atlassian.com/blog/ai-at-work/ai-sdlc-transformation-playbook"
+        }
+      ]
+    },
+    {
+      "id": "openai",
+      "name": "OpenAI",
+      "framework": "Building an AI-native engineering team (Codex guide, undated)",
+      "status": "Reviewed",
+      "sources": [
+        {
+          "label": "Guide (PDF)",
+          "url": "https://cdn.openai.com/business-guides-and-resources/building-an-ai-native-engineering-team.pdf"
+        },
+        {
+          "label": "Guide (web)",
+          "url": "https://developers.openai.com/codex/guides/build-ai-native-engineering-team"
+        },
+        {
+          "label": "Scaling Codex to enterprises",
+          "url": "https://openai.com/index/scaling-codex-to-enterprises-worldwide"
+        }
+      ]
+    },
+    {
+      "id": "microsoft",
+      "name": "Microsoft",
+      "framework": "Hypervelocity Engineering (HVE) Core for GitHub Copilot",
+      "status": "Reviewed (repo only)",
+      "sources": [
+        {
+          "label": "HVE Core repository",
+          "url": "https://github.com/microsoft/hve-core"
+        },
+        {
+          "label": "HVE Core wiki",
+          "url": "https://github.com/microsoft/hve-core/wiki"
+        }
+      ]
+    },
+    {
+      "id": "github",
+      "name": "GitHub",
+      "framework": "Agent HQ (announced Oct 2025)",
+      "status": "Reviewed (one post)",
+      "sources": [
+        {
+          "label": "Introducing Agent HQ",
+          "url": "https://github.blog/news-insights/company-news/welcome-home-agents/"
+        }
       ]
     }
   ],
-  "pending": ["Atlassian", "OpenAI", "Microsoft", "GitHub"],
+  "pending": [],
   "rows": [
     {
       "topic": "Lifecycle shape",
       "cells": {
         "anthropic": {
           "text": "Six stages (Plan, Design, Build, Test, Deploy, Maintain) run as a loop, not a line. Stages are modular; adopt them in any order your dependencies allow.",
-          "links": [{"label": "Plays overview", "url": "https://claude.com/resources/articles/the-ai-native-sdlc-playbook#sd-c2"}]
+          "links": [
+            {
+              "label": "Plays overview",
+              "url": "https://claude.com/resources/articles/the-ai-native-sdlc-playbook#sd-c2"
+            }
+          ]
         },
         "aws": {
           "rating": "similar",
           "text": "Three phases (Inception, Construction, Operations). Operations feeds production learning back into the next Inception cycle, so it is also a loop.",
-          "links": [{"label": "How AI-DLC works", "url": "https://aws.amazon.com/blogs/devops/ai-driven-development-life-cycle/"}]
+          "links": [
+            {
+              "label": "How AI-DLC works",
+              "url": "https://aws.amazon.com/blogs/devops/ai-driven-development-life-cycle/"
+            }
+          ]
+        },
+        "atlassian": {
+          "rating": "similar",
+          "text": "Five workflow areas: Planning, Design, Development, Review, Maintenance. No dedicated Test or Deploy section, and not framed as a closed loop.",
+          "links": [
+            {
+              "label": "Workflows",
+              "url": "https://www.atlassian.com/blog/ai-at-work/ai-sdlc-transformation-playbook"
+            }
+          ]
+        },
+        "openai": {
+          "rating": "similar",
+          "text": "Seven phases (Plan, Design, Build, Test, Review, Document, Deploy and maintain). Each phase splits work into what agents do and what engineers review or own.",
+          "links": [
+            {
+              "label": "Phase tables",
+              "url": "https://cdn.openai.com/business-guides-and-resources/building-an-ai-native-engineering-team.pdf"
+            }
+          ]
+        },
+        "microsoft": {
+          "rating": "different-path",
+          "text": "A working method rather than a lifecycle: Research, Plan, Implement, Review, supported by agents, prompts, instructions and skills.",
+          "links": [
+            {
+              "label": "HVE Core wiki",
+              "url": "https://github.com/microsoft/hve-core/wiki"
+            }
+          ]
+        },
+        "github": {
+          "rating": "different",
+          "text": "No stage model. A platform for running multiple coding agents (Plan Mode, mission control, review, branch controls) on top of existing GitHub workflow.",
+          "links": [
+            {
+              "label": "Agent HQ post",
+              "url": "https://github.blog/news-insights/company-news/welcome-home-agents/"
+            }
+          ]
         }
       }
     },
@@ -46,12 +171,62 @@
       "cells": {
         "anthropic": {
           "text": "Each stage commits a named file (intent.md, spec.md, plan.md, the diff, review findings, incident record). The next stage starts by reading it. The commit chain is the audit trail.",
-          "links": [{"label": "The shifts across stages", "url": "https://claude.com/resources/articles/the-ai-native-sdlc-playbook#sd-c1"}]
+          "links": [
+            {
+              "label": "The shifts across stages",
+              "url": "https://claude.com/resources/articles/the-ai-native-sdlc-playbook#sd-c1"
+            }
+          ]
         },
         "aws": {
           "rating": "similar",
           "text": "AI stores plans, requirements and design artifacts in the project repository so work continues across sessions. Artifact names are not standardised in the posts reviewed.",
-          "links": [{"label": "How AI-DLC works", "url": "https://aws.amazon.com/blogs/devops/ai-driven-development-life-cycle/"}]
+          "links": [
+            {
+              "label": "How AI-DLC works",
+              "url": "https://aws.amazon.com/blogs/devops/ai-driven-development-life-cycle/"
+            }
+          ]
+        },
+        "atlassian": {
+          "rating": "similar",
+          "text": "Specs are versioned files in the repo. Design standards link to code and work items. Agent actions are written back to the system of record as an audit trail.",
+          "links": [
+            {
+              "label": "Planning and design",
+              "url": "https://www.atlassian.com/blog/ai-at-work/ai-sdlc-transformation-playbook"
+            }
+          ]
+        },
+        "openai": {
+          "rating": "similar",
+          "text": "A PLAN.md is committed to the codebase and AGENTS.md carries standing instructions. Fewer named artifacts than the Anthropic chain.",
+          "links": [
+            {
+              "label": "Governance notes",
+              "url": "https://cdn.openai.com/business-guides-and-resources/building-an-ai-native-engineering-team.pdf"
+            }
+          ]
+        },
+        "microsoft": {
+          "rating": "not-covered",
+          "text": "The main page points to a separate AI Artifacts Architecture document rather than listing the artifacts.",
+          "links": [
+            {
+              "label": "HVE Core wiki",
+              "url": "https://github.com/microsoft/hve-core/wiki"
+            }
+          ]
+        },
+        "github": {
+          "rating": "similar",
+          "text": "Agents work through existing primitives: Git, pull requests and issues. The PR and issue thread is the record.",
+          "links": [
+            {
+              "label": "Artifacts and handoff",
+              "url": "https://github.blog/news-insights/company-news/welcome-home-agents/"
+            }
+          ]
         }
       }
     },
@@ -60,12 +235,62 @@
       "cells": {
         "anthropic": {
           "text": "CLAUDE.md for conventions, skills for policies applied consistently, hooks for rules that must always hold. All version controlled and reviewed like code.",
-          "links": [{"label": "Build stage", "url": "https://claude.com/resources/articles/the-ai-native-sdlc-playbook#sd-s3"}]
+          "links": [
+            {
+              "label": "Build stage",
+              "url": "https://claude.com/resources/articles/the-ai-native-sdlc-playbook#sd-s3"
+            }
+          ]
         },
         "aws": {
           "rating": "similar",
           "text": "Steering files guide the agent on security policy, architecture standards, approved dependencies and regulatory guidance. Implemented through Amazon Q project rules and Kiro workflows.",
-          "links": [{"label": "AI-DLC for Financial Services", "url": "https://aws.amazon.com/blogs/industries/ai-driven-development-lifecycle-for-financial-services/"}]
+          "links": [
+            {
+              "label": "AI-DLC for Financial Services",
+              "url": "https://aws.amazon.com/blogs/industries/ai-driven-development-lifecycle-for-financial-services/"
+            }
+          ]
+        },
+        "atlassian": {
+          "rating": "different-path",
+          "text": "Teamwork Graph: a context engine joining 50+ sources (Jira, Confluence, Loom and others) with permissions enforced at the data layer. Design standards also live alongside code.",
+          "links": [
+            {
+              "label": "Context mechanism",
+              "url": "https://www.atlassian.com/blog/ai-at-work/ai-sdlc-transformation-playbook"
+            }
+          ]
+        },
+        "openai": {
+          "rating": "similar",
+          "text": "AGENTS.md is included with every prompt and is used for documentation rules, test coverage and feedback loops such as running tests and linters.",
+          "links": [
+            {
+              "label": "AGENTS.md",
+              "url": "https://cdn.openai.com/business-guides-and-resources/building-an-ai-native-engineering-team.pdf"
+            }
+          ]
+        },
+        "microsoft": {
+          "rating": "similar",
+          "text": "Instructions apply coding standards automatically; skills package reusable workflows. About 80 standards are bundled.",
+          "links": [
+            {
+              "label": "Components",
+              "url": "https://github.com/microsoft/hve-core/wiki"
+            }
+          ]
+        },
+        "github": {
+          "rating": "similar",
+          "text": "AGENTS.md rule files plus MCP servers from a GitHub MCP Registry guide agent behaviour.",
+          "links": [
+            {
+              "label": "Build",
+              "url": "https://github.blog/news-insights/company-news/welcome-home-agents/"
+            }
+          ]
         }
       }
     },
@@ -74,12 +299,62 @@
       "cells": {
         "anthropic": {
           "text": "Hooks block or gate actions deterministically (protected paths, test-file edits, production deploys). Managed settings stop engineers switching them off.",
-          "links": [{"label": "Hooks as approval gates", "url": "https://claude.com/resources/articles/the-ai-native-sdlc-playbook#sd-s5"}]
+          "links": [
+            {
+              "label": "Hooks as approval gates",
+              "url": "https://claude.com/resources/articles/the-ai-native-sdlc-playbook#sd-s5"
+            }
+          ]
         },
         "aws": {
           "rating": "different-path",
           "text": "Enforcement is described mainly as automated quality gates in the CI/CD pipeline and steering files. No equivalent of per-action hooks appears in the posts reviewed.",
-          "links": [{"label": "AI-DLC for Financial Services", "url": "https://aws.amazon.com/blogs/industries/ai-driven-development-lifecycle-for-financial-services/"}]
+          "links": [
+            {
+              "label": "AI-DLC for Financial Services",
+              "url": "https://aws.amazon.com/blogs/industries/ai-driven-development-lifecycle-for-financial-services/"
+            }
+          ]
+        },
+        "atlassian": {
+          "rating": "different-path",
+          "text": "Platform leads centrally define, enforce and monitor standards. Agent loops are scoped and recorded. No per-action hook mechanism described.",
+          "links": [
+            {
+              "label": "Governance",
+              "url": "https://www.atlassian.com/blog/ai-at-work/ai-sdlc-transformation-playbook"
+            }
+          ]
+        },
+        "openai": {
+          "rating": "not-covered",
+          "text": "The guide mentions defining agent access scopes and permissions only. Codex sandbox and managed-config docs exist separately and were not reviewed.",
+          "links": [
+            {
+              "label": "Governance",
+              "url": "https://cdn.openai.com/business-guides-and-resources/building-an-ai-native-engineering-team.pdf"
+            }
+          ]
+        },
+        "microsoft": {
+          "rating": "not-covered",
+          "text": "Not described on the pages reviewed.",
+          "links": [
+            {
+              "label": "HVE Core wiki",
+              "url": "https://github.com/microsoft/hve-core/wiki"
+            }
+          ]
+        },
+        "github": {
+          "rating": "similar",
+          "text": "An enterprise control plane lets admins set security policy, audit logging, access, allowed agents and model access. Branch controls govern when CI runs on agent code.",
+          "links": [
+            {
+              "label": "Governance and control",
+              "url": "https://github.blog/news-insights/company-news/welcome-home-agents/"
+            }
+          ]
         }
       }
     },
@@ -88,12 +363,62 @@
       "cells": {
         "anthropic": {
           "text": "Humans review at gates and judge intent and risk. Agentic review layers run first; human review is reserved for regulated and critical code.",
-          "links": [{"label": "AI in the PR review loop", "url": "https://claude.com/resources/articles/the-ai-native-sdlc-playbook#sd-s5"}]
+          "links": [
+            {
+              "label": "AI in the PR review loop",
+              "url": "https://claude.com/resources/articles/the-ai-native-sdlc-playbook#sd-s5"
+            }
+          ]
         },
         "aws": {
           "rating": "different-path",
           "text": "Humans validate each AI plan and decision before execution proceeds. The AI plans, asks clarifying questions, and implements only after human validation, repeated for every activity.",
-          "links": [{"label": "How AI-DLC works", "url": "https://aws.amazon.com/blogs/devops/ai-driven-development-life-cycle/"}]
+          "links": [
+            {
+              "label": "How AI-DLC works",
+              "url": "https://aws.amazon.com/blogs/devops/ai-driven-development-life-cycle/"
+            }
+          ]
+        },
+        "atlassian": {
+          "rating": "same",
+          "text": "Agents review first against shared standards; humans make the final judgement and keep accountability for quality and governance.",
+          "links": [
+            {
+              "label": "Review",
+              "url": "https://www.atlassian.com/blog/ai-at-work/ai-sdlc-transformation-playbook"
+            }
+          ]
+        },
+        "openai": {
+          "rating": "similar",
+          "text": "Delegate, review, own: agents do the first review pass; engineers own architecture, final review and merge, and production sign-off.",
+          "links": [
+            {
+              "label": "Delegate / Review / Own",
+              "url": "https://cdn.openai.com/business-guides-and-resources/building-an-ai-native-engineering-team.pdf"
+            }
+          ]
+        },
+        "microsoft": {
+          "rating": "same",
+          "text": "Stated principle: AI carries the rules, humans keep judgement, trade-offs, review and decisions.",
+          "links": [
+            {
+              "label": "HVE Core wiki",
+              "url": "https://github.com/microsoft/hve-core/wiki"
+            }
+          ]
+        },
+        "github": {
+          "rating": "same",
+          "text": "Developer approves the plan before implementation; an automated first-pass review runs before a human sees agent code; mission control for steering.",
+          "links": [
+            {
+              "label": "Human oversight",
+              "url": "https://github.blog/news-insights/company-news/welcome-home-agents/"
+            }
+          ]
         }
       }
     },
@@ -102,12 +427,62 @@
       "cells": {
         "anthropic": {
           "text": "Autonomy is tiered by environment and risk. Agents act freely in dev, prepare the release in production, and a named person authorises it.",
-          "links": [{"label": "CI/CD integration", "url": "https://claude.com/resources/articles/the-ai-native-sdlc-playbook#sd-s5"}]
+          "links": [
+            {
+              "label": "CI/CD integration",
+              "url": "https://claude.com/resources/articles/the-ai-native-sdlc-playbook#sd-s5"
+            }
+          ]
         },
         "aws": {
           "rating": "same",
           "text": "Risk-based change categorisation: only material changes need human sign-off, routine changes flow through automated validation. Production and high-impact actions keep approval controls.",
-          "links": [{"label": "AI-DLC for Financial Services", "url": "https://aws.amazon.com/blogs/industries/ai-driven-development-lifecycle-for-financial-services/"}]
+          "links": [
+            {
+              "label": "AI-DLC for Financial Services",
+              "url": "https://aws.amazon.com/blogs/industries/ai-driven-development-lifecycle-for-financial-services/"
+            }
+          ]
+        },
+        "atlassian": {
+          "rating": "not-covered",
+          "text": "No tiered or risk-based approval model described. Deploy is not addressed.",
+          "links": [
+            {
+              "label": "Playbook",
+              "url": "https://www.atlassian.com/blog/ai-at-work/ai-sdlc-transformation-playbook"
+            }
+          ]
+        },
+        "openai": {
+          "rating": "similar",
+          "text": "Start with well-specified tasks and small review rollouts, then expand as results are trusted. Engineers retain sign-off on remediation.",
+          "links": [
+            {
+              "label": "Adoption advice",
+              "url": "https://cdn.openai.com/business-guides-and-resources/building-an-ai-native-engineering-team.pdf"
+            }
+          ]
+        },
+        "microsoft": {
+          "rating": "not-covered",
+          "text": "Not described on the pages reviewed.",
+          "links": [
+            {
+              "label": "HVE Core wiki",
+              "url": "https://github.com/microsoft/hve-core/wiki"
+            }
+          ]
+        },
+        "github": {
+          "rating": "different-path",
+          "text": "Branch controls decide when CI and checks run on agent-created code. No explicit risk tiers in the post.",
+          "links": [
+            {
+              "label": "Branch controls",
+              "url": "https://github.blog/news-insights/company-news/welcome-home-agents/"
+            }
+          ]
         }
       }
     },
@@ -116,12 +491,62 @@
       "cells": {
         "anthropic": {
           "text": "Every session verifies its own work (tests, build, screenshot diff) before a human sees it. Continuous evals regression-test the agent configuration itself.",
-          "links": [{"label": "Test stage", "url": "https://claude.com/resources/articles/the-ai-native-sdlc-playbook#sd-s4"}]
+          "links": [
+            {
+              "label": "Test stage",
+              "url": "https://claude.com/resources/articles/the-ai-native-sdlc-playbook#sd-s4"
+            }
+          ]
         },
         "aws": {
           "rating": "similar",
           "text": "AI validates its own work and self-corrects when tests fail, including deviations from steering files. QA is left-shifted, with high-fidelity test environments and security testing.",
-          "links": [{"label": "AI-DLC for Financial Services", "url": "https://aws.amazon.com/blogs/industries/ai-driven-development-lifecycle-for-financial-services/"}]
+          "links": [
+            {
+              "label": "AI-DLC for Financial Services",
+              "url": "https://aws.amazon.com/blogs/industries/ai-driven-development-lifecycle-for-financial-services/"
+            }
+          ]
+        },
+        "atlassian": {
+          "rating": "not-covered",
+          "text": "Testing is mentioned briefly under Development. No feedback-loop or eval mechanism. An AI Reviewer checks gaps between requirements and what was built.",
+          "links": [
+            {
+              "label": "Development and review",
+              "url": "https://www.atlassian.com/blog/ai-at-work/ai-sdlc-transformation-playbook"
+            }
+          ]
+        },
+        "openai": {
+          "rating": "same",
+          "text": "Agents propose tests, ideally in a separate session from implementation. Engineers check for stubbed or shortcut tests. Feedback loops run tests and linters.",
+          "links": [
+            {
+              "label": "Test phase",
+              "url": "https://cdn.openai.com/business-guides-and-resources/building-an-ai-native-engineering-team.pdf"
+            }
+          ]
+        },
+        "microsoft": {
+          "rating": "not-covered",
+          "text": "A review agent exists; self-verification and evals are not described on the pages reviewed.",
+          "links": [
+            {
+              "label": "HVE Core wiki",
+              "url": "https://github.com/microsoft/hve-core/wiki"
+            }
+          ]
+        },
+        "github": {
+          "rating": "not-covered",
+          "text": "Quality is addressed through automated review and a Code Quality reporting preview. No agent self-verification loop described.",
+          "links": [
+            {
+              "label": "Review",
+              "url": "https://github.blog/news-insights/company-news/welcome-home-agents/"
+            }
+          ]
         }
       }
     },
@@ -130,12 +555,62 @@
       "cells": {
         "anthropic": {
           "text": "Headless stage: a deterministic detector watches production metrics against control bands and invokes the agent, which writes the finding as a new intent.md. Scheduled security scans and Slack-based on-call extend it.",
-          "links": [{"label": "Maintain stage", "url": "https://claude.com/resources/articles/the-ai-native-sdlc-playbook#sd-s6"}]
+          "links": [
+            {
+              "label": "Maintain stage",
+              "url": "https://claude.com/resources/articles/the-ai-native-sdlc-playbook#sd-s6"
+            }
+          ]
         },
         "aws": {
           "rating": "different-path",
           "text": "Monitoring feeds the coding agent's context and informs future Inception cycles. AI agents (for example Amazon DevOps Agent) can investigate incident root causes. Less specific on autonomy tiers.",
-          "links": [{"label": "AI-DLC for Financial Services", "url": "https://aws.amazon.com/blogs/industries/ai-driven-development-lifecycle-for-financial-services/"}]
+          "links": [
+            {
+              "label": "AI-DLC for Financial Services",
+              "url": "https://aws.amazon.com/blogs/industries/ai-driven-development-lifecycle-for-financial-services/"
+            }
+          ]
+        },
+        "atlassian": {
+          "rating": "similar",
+          "text": "Agents classify errors, draft root-cause analyses, handle routine fixes and dependency updates, and escalate. Work items are spawned from operational signals.",
+          "links": [
+            {
+              "label": "Maintenance",
+              "url": "https://www.atlassian.com/blog/ai-at-work/ai-sdlc-transformation-playbook"
+            }
+          ]
+        },
+        "openai": {
+          "rating": "different-path",
+          "text": "Agents parse logs, flag suspect commits and propose hotfixes. Engineers validate the diagnosis and approve remediation. Teams are advised to run simulated incidents.",
+          "links": [
+            {
+              "label": "Deploy and maintain",
+              "url": "https://cdn.openai.com/business-guides-and-resources/building-an-ai-native-engineering-team.pdf"
+            }
+          ]
+        },
+        "microsoft": {
+          "rating": "not-covered",
+          "text": "Not described on the pages reviewed.",
+          "links": [
+            {
+              "label": "HVE Core wiki",
+              "url": "https://github.com/microsoft/hve-core/wiki"
+            }
+          ]
+        },
+        "github": {
+          "rating": "not-covered",
+          "text": "The post offers little on deploy or operations beyond agents running on Actions or self-hosted runners.",
+          "links": [
+            {
+              "label": "Agent HQ post",
+              "url": "https://github.blog/news-insights/company-news/welcome-home-agents/"
+            }
+          ]
         }
       }
     },
@@ -144,12 +619,66 @@
       "cells": {
         "anthropic": {
           "text": "Not prescribed. Focus is on artifacts, automation and gates. One engineer can run several parallel sessions, but no new team model or vocabulary is mandated.",
-          "links": [{"label": "Parallel sessions and subagents", "url": "https://claude.com/resources/articles/the-ai-native-sdlc-playbook#sd-s3"}]
+          "links": [
+            {
+              "label": "Parallel sessions and subagents",
+              "url": "https://claude.com/resources/articles/the-ai-native-sdlc-playbook#sd-s3"
+            }
+          ]
         },
         "aws": {
           "rating": "different",
           "text": "Prescriptive. AI Pods of 2 to 3 developers replace scrum teams of about 7. Sprints become \"bolts\", epics become Units of Work, and Mob Elaboration / Mob Construction are team rituals. Co-location matters in Inception.",
-          "links": [{"label": "How AI-DLC works", "url": "https://aws.amazon.com/blogs/devops/ai-driven-development-life-cycle/"}, {"label": "Organizational shift", "url": "https://aws.amazon.com/blogs/industries/ai-driven-development-lifecycle-for-financial-services/"}]
+          "links": [
+            {
+              "label": "How AI-DLC works",
+              "url": "https://aws.amazon.com/blogs/devops/ai-driven-development-life-cycle/"
+            },
+            {
+              "label": "Organizational shift",
+              "url": "https://aws.amazon.com/blogs/industries/ai-driven-development-lifecycle-for-financial-services/"
+            }
+          ]
+        },
+        "atlassian": {
+          "rating": "similar",
+          "text": "No detailed team model. Advises updating rituals, roles and success metrics alongside tooling. Designers and PMs can ship small UI changes and fixes via agents.",
+          "links": [
+            {
+              "label": "Operating model",
+              "url": "https://www.atlassian.com/blog/ai-at-work/ai-sdlc-transformation-playbook"
+            }
+          ]
+        },
+        "openai": {
+          "rating": "similar",
+          "text": "No team model in the guide. Organised by phase and by who delegates, reviews or owns the work.",
+          "links": [
+            {
+              "label": "Delegate / Review / Own",
+              "url": "https://cdn.openai.com/business-guides-and-resources/building-an-ai-native-engineering-team.pdf"
+            }
+          ]
+        },
+        "microsoft": {
+          "rating": "not-covered",
+          "text": "Not described on the pages reviewed.",
+          "links": [
+            {
+              "label": "HVE Core wiki",
+              "url": "https://github.com/microsoft/hve-core/wiki"
+            }
+          ]
+        },
+        "github": {
+          "rating": "similar",
+          "text": "No team model. Mission control integrates with Slack, Teams, Jira, Linear and Azure Boards for assigning agent work.",
+          "links": [
+            {
+              "label": "Mission control",
+              "url": "https://github.blog/news-insights/company-news/welcome-home-agents/"
+            }
+          ]
         }
       }
     },
@@ -158,12 +687,62 @@
       "cells": {
         "anthropic": {
           "text": "Each play names a leading and a lagging indicator, mostly read from git history, PR metadata and CI events (for example time from intent to spec, rework after build starts, DORA).",
-          "links": [{"label": "How to measure it (per play)", "url": "https://claude.com/resources/articles/the-ai-native-sdlc-playbook#sd-c2"}]
+          "links": [
+            {
+              "label": "How to measure it (per play)",
+              "url": "https://claude.com/resources/articles/the-ai-native-sdlc-playbook#sd-c2"
+            }
+          ]
         },
         "aws": {
           "rating": "different-path",
           "text": "A KPI suite (mean time to deploy and recover, failed-deployment %, incidents by severity, technical debt, NPS) plus Amazon's Cost-to-Serve-Software framework for the financial case.",
-          "links": [{"label": "Measurable outcomes", "url": "https://aws.amazon.com/blogs/industries/ai-driven-development-lifecycle-for-financial-services/"}]
+          "links": [
+            {
+              "label": "Measurable outcomes",
+              "url": "https://aws.amazon.com/blogs/industries/ai-driven-development-lifecycle-for-financial-services/"
+            }
+          ]
+        },
+        "atlassian": {
+          "rating": "different-path",
+          "text": "Build measurement before scaling. Uses DX to combine Jira, Cursor and Claude Code data with developer feedback. Track cost, productivity and ROI.",
+          "links": [
+            {
+              "label": "Measurement",
+              "url": "https://www.atlassian.com/blog/ai-at-work/ai-sdlc-transformation-playbook"
+            }
+          ]
+        },
+        "openai": {
+          "rating": "different-path",
+          "text": "Light signals: PR comment reactions, a gold-standard PR set to compare review tools, and whether agent commands succeed. No org-level KPI set.",
+          "links": [
+            {
+              "label": "Metrics",
+              "url": "https://cdn.openai.com/business-guides-and-resources/building-an-ai-native-engineering-team.pdf"
+            }
+          ]
+        },
+        "microsoft": {
+          "rating": "not-covered",
+          "text": "No outcome metrics. The page gives only repository statistics.",
+          "links": [
+            {
+              "label": "HVE Core wiki",
+              "url": "https://github.com/microsoft/hve-core/wiki"
+            }
+          ]
+        },
+        "github": {
+          "rating": "different-path",
+          "text": "A Copilot metrics dashboard (public preview at announcement) reports usage and impact across an organisation.",
+          "links": [
+            {
+              "label": "Metrics dashboard",
+              "url": "https://github.blog/news-insights/company-news/welcome-home-agents/"
+            }
+          ]
         }
       }
     },
@@ -172,12 +751,66 @@
       "cells": {
         "anthropic": {
           "text": "Dependency graph of twelve plays. Six have no prerequisites, so teams start anywhere and build up.",
-          "links": [{"label": "Pick your first play", "url": "https://academy.claude.com/courses/ai-native-sdlc-playbook/introduction"}]
+          "links": [
+            {
+              "label": "Pick your first play",
+              "url": "https://academy.claude.com/courses/ai-native-sdlc-playbook/introduction"
+            }
+          ]
         },
         "aws": {
           "rating": "similar",
           "text": "Three-phase adoption: executive alignment, technical enablement, hands-on pilots. States mature DevSecOps must already exist, because AI-DLC amplifies existing capability.",
-          "links": [{"label": "Getting started", "url": "https://aws.amazon.com/blogs/industries/ai-driven-development-lifecycle-for-financial-services/"}]
+          "links": [
+            {
+              "label": "Getting started",
+              "url": "https://aws.amazon.com/blogs/industries/ai-driven-development-lifecycle-for-financial-services/"
+            }
+          ]
+        },
+        "atlassian": {
+          "rating": "similar",
+          "text": "Five moves: connected permissioned context, early measurement, pick one starting stage and go deep, preserve accountability, build the operating model.",
+          "links": [
+            {
+              "label": "Adoption steps",
+              "url": "https://www.atlassian.com/blog/ai-at-work/ai-sdlc-transformation-playbook"
+            }
+          ]
+        },
+        "openai": {
+          "rating": "similar",
+          "text": "Start with well-specified tasks, add guardrails, iterate on AGENTS.md, roll out review in small steps. A third-party summary adds a phased adoption timeline.",
+          "links": [
+            {
+              "label": "Adoption advice",
+              "url": "https://cdn.openai.com/business-guides-and-resources/building-an-ai-native-engineering-team.pdf"
+            },
+            {
+              "label": "Third-party summary",
+              "url": "https://codex.danielvaughan.com/2026/04/28/building-ai-native-engineering-teams-codex-cli-sdlc-adoption/"
+            }
+          ]
+        },
+        "microsoft": {
+          "rating": "different-path",
+          "text": "Install as a VS Code extension or Copilot CLI plugin. Treat as a source of patterns, not a stable platform or production dependency.",
+          "links": [
+            {
+              "label": "HVE Core",
+              "url": "https://github.com/microsoft/hve-core"
+            }
+          ]
+        },
+        "github": {
+          "rating": "not-covered",
+          "text": "Not addressed. The post describes planned capabilities.",
+          "links": [
+            {
+              "label": "Agent HQ post",
+              "url": "https://github.blog/news-insights/company-news/welcome-home-agents/"
+            }
+          ]
         }
       }
     },
@@ -186,12 +819,62 @@
       "cells": {
         "anthropic": {
           "text": "High. Step-by-step plays with example files, configs, prompts and governance notes for each play.",
-          "links": [{"label": "Full playbook", "url": "https://claude.com/resources/articles/the-ai-native-sdlc-playbook"}]
+          "links": [
+            {
+              "label": "Full playbook",
+              "url": "https://claude.com/resources/articles/the-ai-native-sdlc-playbook"
+            }
+          ]
         },
         "aws": {
           "rating": "different-path",
           "text": "Methodology and principles in the public posts, with the full method in a whitepaper (not yet reviewed here). Open-sourced workflows are available for implementation.",
-          "links": [{"label": "How to get started", "url": "https://aws.amazon.com/blogs/devops/ai-driven-development-life-cycle/"}]
+          "links": [
+            {
+              "label": "How to get started",
+              "url": "https://aws.amazon.com/blogs/devops/ai-driven-development-life-cycle/"
+            }
+          ]
+        },
+        "atlassian": {
+          "rating": "different-path",
+          "text": "Strategic with product examples. No file formats, configs or step-by-step plays.",
+          "links": [
+            {
+              "label": "Playbook",
+              "url": "https://www.atlassian.com/blog/ai-at-work/ai-sdlc-transformation-playbook"
+            }
+          ]
+        },
+        "openai": {
+          "rating": "different-path",
+          "text": "Per-phase tables and customer examples. Light on configs; hands-on detail sits in separate Codex docs.",
+          "links": [
+            {
+              "label": "Guide",
+              "url": "https://cdn.openai.com/business-guides-and-resources/building-an-ai-native-engineering-team.pdf"
+            }
+          ]
+        },
+        "microsoft": {
+          "rating": "different",
+          "text": "A usable starter kit of agents, prompts, instructions and skills rather than a methodology document.",
+          "links": [
+            {
+              "label": "HVE Core",
+              "url": "https://github.com/microsoft/hve-core"
+            }
+          ]
+        },
+        "github": {
+          "rating": "different",
+          "text": "A product announcement, not a methodology.",
+          "links": [
+            {
+              "label": "Agent HQ post",
+              "url": "https://github.blog/news-insights/company-news/welcome-home-agents/"
+            }
+          ]
         }
       }
     },
@@ -200,12 +883,62 @@
       "cells": {
         "anthropic": {
           "text": "No customer outcome figures in the playbook itself. It leans on Anthropic's internal practice and the measurement plays.",
-          "links": [{"label": "Closing thoughts", "url": "https://claude.com/resources/articles/the-ai-native-sdlc-playbook#sd-c9"}]
+          "links": [
+            {
+              "label": "Closing thoughts",
+              "url": "https://claude.com/resources/articles/the-ai-native-sdlc-playbook#sd-c9"
+            }
+          ]
         },
         "aws": {
           "rating": "different",
           "text": "Quotes figures: a Bedrock engine rebuilt by 6 engineers in 76 days against an estimate of 40 engineers for a year, and an unnamed European bank going from 12 to 3 developers. All vendor-reported.",
-          "links": [{"label": "A signal too big to ignore", "url": "https://aws.amazon.com/blogs/industries/ai-driven-development-lifecycle-for-financial-services/"}]
+          "links": [
+            {
+              "label": "A signal too big to ignore",
+              "url": "https://aws.amazon.com/blogs/industries/ai-driven-development-lifecycle-for-financial-services/"
+            }
+          ]
+        },
+        "atlassian": {
+          "rating": "different",
+          "text": "Internal figures: issue cycle time down from 11.5 to 6.7 days; agents with Teamwork Graph 44% more accurate with 48% fewer tokens; 51% of vulnerabilities auto-resolved. All vendor-reported.",
+          "links": [
+            {
+              "label": "Results",
+              "url": "https://www.atlassian.com/blog/ai-at-work/ai-sdlc-transformation-playbook"
+            }
+          ]
+        },
+        "openai": {
+          "rating": "different",
+          "text": "Customer examples (Cloudwalk, Sansan, Virgin Atlantic) and a claim that work once taking weeks now takes days. Few hard figures.",
+          "links": [
+            {
+              "label": "Customer examples",
+              "url": "https://cdn.openai.com/business-guides-and-resources/building-an-ai-native-engineering-team.pdf"
+            }
+          ]
+        },
+        "microsoft": {
+          "rating": "not-covered",
+          "text": "None. The project itself cautions that it is evolving.",
+          "links": [
+            {
+              "label": "HVE Core wiki",
+              "url": "https://github.com/microsoft/hve-core/wiki"
+            }
+          ]
+        },
+        "github": {
+          "rating": "different",
+          "text": "Platform statistics only (developer base and Copilot adoption). No delivery-outcome figures.",
+          "links": [
+            {
+              "label": "Agent HQ post",
+              "url": "https://github.blog/news-insights/company-news/welcome-home-agents/"
+            }
+          ]
         }
       }
     },
@@ -227,6 +960,36 @@
             "Strong regulated-industry story: traceability, steering files, risk-based approval",
             "Business-case framing (cost-to-serve) for executives",
             "Workflows are open-sourced; the FS post names Claude Code alongside Kiro"
+          ]
+        },
+        "atlassian": {
+          "bullets": [
+            "Context engine ties agents to work items, docs, code and people, with permissions",
+            "Fits teams that already run on Jira and Confluence as the system of record",
+            "Advises building measurement before scaling",
+            "Reports before-and-after cycle-time figures"
+          ]
+        },
+        "openai": {
+          "bullets": [
+            "Simple delegate / review / own model that is easy to explain",
+            "Covers seven phases, including documentation",
+            "Practical adoption advice: start small and iterate",
+            "Separate-session testing guards against agents grading their own work"
+          ]
+        },
+        "microsoft": {
+          "bullets": [
+            "Open source and immediately usable building blocks",
+            "Clear principle on who carries rules and who keeps judgement",
+            "Ships with governance and responsible-AI documents"
+          ]
+        },
+        "github": {
+          "bullets": [
+            "Works inside existing PRs and issues, so little process change",
+            "Central governance concept: policy, audit, allowed agents",
+            "Designed to host several vendors' agents in one place"
           ]
         }
       }
@@ -250,13 +1013,62 @@
             "Heavy rituals and co-location may be hard to retrofit onto existing teams",
             "Slower on autonomous operation: humans stay close to every plan"
           ]
+        },
+        "atlassian": {
+          "bullets": [
+            "No Test or Deploy coverage",
+            "Assumes the Atlassian stack for its central mechanism",
+            "Results are internal and unverified",
+            "Little implementation detail"
+          ]
+        },
+        "openai": {
+          "bullets": [
+            "Guide is undated and light on enforceable controls",
+            "Metrics are thin and not organisation-level",
+            "Detailed configuration lives in other Codex documents",
+            "Written around Codex, so tooling needs translating"
+          ]
+        },
+        "microsoft": {
+          "bullets": [
+            "Self-described as rapidly evolving and not for production dependency",
+            "No outcome metrics; stage mapping and artifacts not on the main page",
+            "Tied to GitHub Copilot",
+            "Only the repository was reviewed, not Microsoft's wider Agentic DevOps material"
+          ]
+        },
+        "github": {
+          "bullets": [
+            "Oct 2025 announcement; some capabilities were still planned",
+            "Product post, not a lifecycle method",
+            "Thin on testing, deploy and maintenance",
+            "Only one GitHub post was reviewed"
+          ]
         }
       }
     }
   ],
   "third_party": [
-    {"label": "Waydev: the playbook's missing layer is measurement", "url": "https://waydev.co/anthropics-ai-native-sdlc-playbook-has-a-missing-layer-measurement/"},
-    {"label": "QualityLogic: the playbook is missing one play", "url": "https://www.qualitylogic.com/knowledge-center/ai-native-sdlc-playbook/"},
-    {"label": "ELEKS: AWS AI-DLC explained, with comparisons", "url": "https://eleks.com/blog/aws-ai-dlc-explained/"}
+    {
+      "label": "Waydev: the playbook's missing layer is measurement",
+      "url": "https://waydev.co/anthropics-ai-native-sdlc-playbook-has-a-missing-layer-measurement/"
+    },
+    {
+      "label": "QualityLogic: the playbook is missing one play",
+      "url": "https://www.qualitylogic.com/knowledge-center/ai-native-sdlc-playbook/"
+    },
+    {
+      "label": "ELEKS: AWS AI-DLC explained, with comparisons",
+      "url": "https://eleks.com/blog/aws-ai-dlc-explained/"
+    },
+    {
+      "label": "Futurum: GitHub Universe 2025 analysis",
+      "url": "https://futurumgroup.com/insights/github-boldly-maps-out-the-agentic-development-universe/"
+    },
+    {
+      "label": "Third-party summary of OpenAI's guide (adds its own timeline and metrics)",
+      "url": "https://codex.danielvaughan.com/2026/04/28/building-ai-native-engineering-teams-codex-cli-sdlc-adoption/"
+    }
   ]
 }
