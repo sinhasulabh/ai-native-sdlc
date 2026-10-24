@@ -1,0 +1,262 @@
+{
+  "title": "AI-native SDLC: how the vendors compare",
+  "updated": "2026-10-24",
+  "baseline": "anthropic",
+  "vendors": [
+    {
+      "id": "anthropic",
+      "name": "Anthropic",
+      "framework": "The AI-native SDLC playbook (Aug 2026)",
+      "status": "Baseline",
+      "sources": [
+        {"label": "Playbook (article)", "url": "https://claude.com/resources/articles/the-ai-native-sdlc-playbook"},
+        {"label": "Playbook (PDF)", "url": "https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6aba736348bdf4f08183f463_AI%20Native%20SDLC%20Playbook_designv2%20%281%29.pdf"},
+        {"label": "Claude Academy course", "url": "https://academy.claude.com/courses/ai-native-sdlc-playbook"}
+      ]
+    },
+    {
+      "id": "aws",
+      "name": "AWS",
+      "framework": "AI-Driven Development Life Cycle, AI-DLC (Jul 2025; FS post May 2026)",
+      "status": "Reviewed",
+      "sources": [
+        {"label": "AI-DLC announcement (Jul 2025)", "url": "https://aws.amazon.com/blogs/devops/ai-driven-development-life-cycle/"},
+        {"label": "AI-DLC for Financial Services (May 2026)", "url": "https://aws.amazon.com/blogs/industries/ai-driven-development-lifecycle-for-financial-services/"}
+      ]
+    }
+  ],
+  "pending": ["Atlassian", "OpenAI", "Microsoft", "GitHub"],
+  "rows": [
+    {
+      "topic": "Lifecycle shape",
+      "cells": {
+        "anthropic": {
+          "text": "Six stages (Plan, Design, Build, Test, Deploy, Maintain) run as a loop, not a line. Stages are modular; adopt them in any order your dependencies allow.",
+          "links": [{"label": "Plays overview", "url": "https://claude.com/resources/articles/the-ai-native-sdlc-playbook#sd-c2"}]
+        },
+        "aws": {
+          "rating": "similar",
+          "text": "Three phases (Inception, Construction, Operations). Operations feeds production learning back into the next Inception cycle, so it is also a loop.",
+          "links": [{"label": "How AI-DLC works", "url": "https://aws.amazon.com/blogs/devops/ai-driven-development-life-cycle/"}]
+        }
+      }
+    },
+    {
+      "topic": "Handoff between stages",
+      "cells": {
+        "anthropic": {
+          "text": "Each stage commits a named file (intent.md, spec.md, plan.md, the diff, review findings, incident record). The next stage starts by reading it. The commit chain is the audit trail.",
+          "links": [{"label": "The shifts across stages", "url": "https://claude.com/resources/articles/the-ai-native-sdlc-playbook#sd-c1"}]
+        },
+        "aws": {
+          "rating": "similar",
+          "text": "AI stores plans, requirements and design artifacts in the project repository so work continues across sessions. Artifact names are not standardised in the posts reviewed.",
+          "links": [{"label": "How AI-DLC works", "url": "https://aws.amazon.com/blogs/devops/ai-driven-development-life-cycle/"}]
+        }
+      }
+    },
+    {
+      "topic": "Encoding institutional rules",
+      "cells": {
+        "anthropic": {
+          "text": "CLAUDE.md for conventions, skills for policies applied consistently, hooks for rules that must always hold. All version controlled and reviewed like code.",
+          "links": [{"label": "Build stage", "url": "https://claude.com/resources/articles/the-ai-native-sdlc-playbook#sd-s3"}]
+        },
+        "aws": {
+          "rating": "similar",
+          "text": "Steering files guide the agent on security policy, architecture standards, approved dependencies and regulatory guidance. Implemented through Amazon Q project rules and Kiro workflows.",
+          "links": [{"label": "AI-DLC for Financial Services", "url": "https://aws.amazon.com/blogs/industries/ai-driven-development-lifecycle-for-financial-services/"}]
+        }
+      }
+    },
+    {
+      "topic": "Deterministic enforcement",
+      "cells": {
+        "anthropic": {
+          "text": "Hooks block or gate actions deterministically (protected paths, test-file edits, production deploys). Managed settings stop engineers switching them off.",
+          "links": [{"label": "Hooks as approval gates", "url": "https://claude.com/resources/articles/the-ai-native-sdlc-playbook#sd-s5"}]
+        },
+        "aws": {
+          "rating": "different-path",
+          "text": "Enforcement is described mainly as automated quality gates in the CI/CD pipeline and steering files. No equivalent of per-action hooks appears in the posts reviewed.",
+          "links": [{"label": "AI-DLC for Financial Services", "url": "https://aws.amazon.com/blogs/industries/ai-driven-development-lifecycle-for-financial-services/"}]
+        }
+      }
+    },
+    {
+      "topic": "Role of the human",
+      "cells": {
+        "anthropic": {
+          "text": "Humans review at gates and judge intent and risk. Agentic review layers run first; human review is reserved for regulated and critical code.",
+          "links": [{"label": "AI in the PR review loop", "url": "https://claude.com/resources/articles/the-ai-native-sdlc-playbook#sd-s5"}]
+        },
+        "aws": {
+          "rating": "different-path",
+          "text": "Humans validate each AI plan and decision before execution proceeds. The AI plans, asks clarifying questions, and implements only after human validation, repeated for every activity.",
+          "links": [{"label": "How AI-DLC works", "url": "https://aws.amazon.com/blogs/devops/ai-driven-development-life-cycle/"}]
+        }
+      }
+    },
+    {
+      "topic": "Risk-based approval",
+      "cells": {
+        "anthropic": {
+          "text": "Autonomy is tiered by environment and risk. Agents act freely in dev, prepare the release in production, and a named person authorises it.",
+          "links": [{"label": "CI/CD integration", "url": "https://claude.com/resources/articles/the-ai-native-sdlc-playbook#sd-s5"}]
+        },
+        "aws": {
+          "rating": "same",
+          "text": "Risk-based change categorisation: only material changes need human sign-off, routine changes flow through automated validation. Production and high-impact actions keep approval controls.",
+          "links": [{"label": "AI-DLC for Financial Services", "url": "https://aws.amazon.com/blogs/industries/ai-driven-development-lifecycle-for-financial-services/"}]
+        }
+      }
+    },
+    {
+      "topic": "Testing and self-verification",
+      "cells": {
+        "anthropic": {
+          "text": "Every session verifies its own work (tests, build, screenshot diff) before a human sees it. Continuous evals regression-test the agent configuration itself.",
+          "links": [{"label": "Test stage", "url": "https://claude.com/resources/articles/the-ai-native-sdlc-playbook#sd-s4"}]
+        },
+        "aws": {
+          "rating": "similar",
+          "text": "AI validates its own work and self-corrects when tests fail, including deviations from steering files. QA is left-shifted, with high-fidelity test environments and security testing.",
+          "links": [{"label": "AI-DLC for Financial Services", "url": "https://aws.amazon.com/blogs/industries/ai-driven-development-lifecycle-for-financial-services/"}]
+        }
+      }
+    },
+    {
+      "topic": "Closing the loop after release",
+      "cells": {
+        "anthropic": {
+          "text": "Headless stage: a deterministic detector watches production metrics against control bands and invokes the agent, which writes the finding as a new intent.md. Scheduled security scans and Slack-based on-call extend it.",
+          "links": [{"label": "Maintain stage", "url": "https://claude.com/resources/articles/the-ai-native-sdlc-playbook#sd-s6"}]
+        },
+        "aws": {
+          "rating": "different-path",
+          "text": "Monitoring feeds the coding agent's context and informs future Inception cycles. AI agents (for example Amazon DevOps Agent) can investigate incident root causes. Less specific on autonomy tiers.",
+          "links": [{"label": "AI-DLC for Financial Services", "url": "https://aws.amazon.com/blogs/industries/ai-driven-development-lifecycle-for-financial-services/"}]
+        }
+      }
+    },
+    {
+      "topic": "Team structure and rituals",
+      "cells": {
+        "anthropic": {
+          "text": "Not prescribed. Focus is on artifacts, automation and gates. One engineer can run several parallel sessions, but no new team model or vocabulary is mandated.",
+          "links": [{"label": "Parallel sessions and subagents", "url": "https://claude.com/resources/articles/the-ai-native-sdlc-playbook#sd-s3"}]
+        },
+        "aws": {
+          "rating": "different",
+          "text": "Prescriptive. AI Pods of 2 to 3 developers replace scrum teams of about 7. Sprints become \"bolts\", epics become Units of Work, and Mob Elaboration / Mob Construction are team rituals. Co-location matters in Inception.",
+          "links": [{"label": "How AI-DLC works", "url": "https://aws.amazon.com/blogs/devops/ai-driven-development-life-cycle/"}, {"label": "Organizational shift", "url": "https://aws.amazon.com/blogs/industries/ai-driven-development-lifecycle-for-financial-services/"}]
+        }
+      }
+    },
+    {
+      "topic": "Measurement",
+      "cells": {
+        "anthropic": {
+          "text": "Each play names a leading and a lagging indicator, mostly read from git history, PR metadata and CI events (for example time from intent to spec, rework after build starts, DORA).",
+          "links": [{"label": "How to measure it (per play)", "url": "https://claude.com/resources/articles/the-ai-native-sdlc-playbook#sd-c2"}]
+        },
+        "aws": {
+          "rating": "different-path",
+          "text": "A KPI suite (mean time to deploy and recover, failed-deployment %, incidents by severity, technical debt, NPS) plus Amazon's Cost-to-Serve-Software framework for the financial case.",
+          "links": [{"label": "Measurable outcomes", "url": "https://aws.amazon.com/blogs/industries/ai-driven-development-lifecycle-for-financial-services/"}]
+        }
+      }
+    },
+    {
+      "topic": "Prerequisites and adoption path",
+      "cells": {
+        "anthropic": {
+          "text": "Dependency graph of twelve plays. Six have no prerequisites, so teams start anywhere and build up.",
+          "links": [{"label": "Pick your first play", "url": "https://academy.claude.com/courses/ai-native-sdlc-playbook/introduction"}]
+        },
+        "aws": {
+          "rating": "similar",
+          "text": "Three-phase adoption: executive alignment, technical enablement, hands-on pilots. States mature DevSecOps must already exist, because AI-DLC amplifies existing capability.",
+          "links": [{"label": "Getting started", "url": "https://aws.amazon.com/blogs/industries/ai-driven-development-lifecycle-for-financial-services/"}]
+        }
+      }
+    },
+    {
+      "topic": "Level of implementation detail",
+      "cells": {
+        "anthropic": {
+          "text": "High. Step-by-step plays with example files, configs, prompts and governance notes for each play.",
+          "links": [{"label": "Full playbook", "url": "https://claude.com/resources/articles/the-ai-native-sdlc-playbook"}]
+        },
+        "aws": {
+          "rating": "different-path",
+          "text": "Methodology and principles in the public posts, with the full method in a whitepaper (not yet reviewed here). Open-sourced workflows are available for implementation.",
+          "links": [{"label": "How to get started", "url": "https://aws.amazon.com/blogs/devops/ai-driven-development-life-cycle/"}]
+        }
+      }
+    },
+    {
+      "topic": "Evidence of results",
+      "cells": {
+        "anthropic": {
+          "text": "No customer outcome figures in the playbook itself. It leans on Anthropic's internal practice and the measurement plays.",
+          "links": [{"label": "Closing thoughts", "url": "https://claude.com/resources/articles/the-ai-native-sdlc-playbook#sd-c9"}]
+        },
+        "aws": {
+          "rating": "different",
+          "text": "Quotes figures: a Bedrock engine rebuilt by 6 engineers in 76 days against an estimate of 40 engineers for a year, and an unnamed European bank going from 12 to 3 developers. All vendor-reported.",
+          "links": [{"label": "A signal too big to ignore", "url": "https://aws.amazon.com/blogs/industries/ai-driven-development-lifecycle-for-financial-services/"}]
+        }
+      }
+    },
+    {
+      "topic": "Strengths (our assessment)",
+      "assessment": true,
+      "cells": {
+        "anthropic": {
+          "bullets": [
+            "Concrete and implementable: named files, example configs, prompts",
+            "Controls are deterministic (hooks, managed settings), not just advisory",
+            "Every play has measurable indicators drawn from existing tooling",
+            "Modular: start with any no-prerequisite play"
+          ]
+        },
+        "aws": {
+          "bullets": [
+            "Clear operating model for teams (AI Pods, mob rituals)",
+            "Strong regulated-industry story: traceability, steering files, risk-based approval",
+            "Business-case framing (cost-to-serve) for executives",
+            "Workflows are open-sourced; the FS post names Claude Code alongside Kiro"
+          ]
+        }
+      }
+    },
+    {
+      "topic": "Gaps and watch-outs (our assessment)",
+      "assessment": true,
+      "cells": {
+        "anthropic": {
+          "bullets": [
+            "Tooling is Claude-centric; other agents need translating",
+            "Says little on team structure, roles and change management",
+            "No baseline step before the loop; third-party critics flag measurement needs a pre-existing baseline",
+            "No customer outcome numbers to anchor an ROI case"
+          ]
+        },
+        "aws": {
+          "bullets": [
+            "Headline results are vendor-reported or unnamed",
+            "Public posts are conceptual; detail sits in a whitepaper",
+            "Heavy rituals and co-location may be hard to retrofit onto existing teams",
+            "Slower on autonomous operation: humans stay close to every plan"
+          ]
+        }
+      }
+    }
+  ],
+  "third_party": [
+    {"label": "Waydev: the playbook's missing layer is measurement", "url": "https://waydev.co/anthropics-ai-native-sdlc-playbook-has-a-missing-layer-measurement/"},
+    {"label": "QualityLogic: the playbook is missing one play", "url": "https://www.qualitylogic.com/knowledge-center/ai-native-sdlc-playbook/"},
+    {"label": "ELEKS: AWS AI-DLC explained, with comparisons", "url": "https://eleks.com/blog/aws-ai-dlc-explained/"}
+  ]
+}

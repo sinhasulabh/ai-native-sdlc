@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI-native SDLC: how the vendors compare</title>
+<meta name="description" content="Side-by-side comparison of vendor frameworks for an AI-native software development lifecycle, using Anthropic's playbook as the baseline.">
+<style>
+:root {
+  --bg:#fbfaf7; --fg:#1d1d1b; --muted:#5f5e5a; --line:#dcd9d0; --card:#ffffff;
+  --accent:#8a3b12;
+  --same:#e3f1e5;     --same-b:#2f7d3a;
+  --similar:#eef5df;  --similar-b:#6a8f22;
+  --path:#fff1d6;     --path-b:#b9770e;
+  --diff:#fbe3e0;     --diff-b:#b23a2e;
+  --base:#eef0f5;     --base-b:#4a5a85;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:#161614; --fg:#ecebe6; --muted:#a3a198; --line:#34332f; --card:#1e1e1c;
+    --accent:#e08a5a;
+    --same:#1d3322;    --same-b:#6cc07a;
+    --similar:#2a3216; --similar-b:#a7c95a;
+    --path:#3a2c10;    --path-b:#e6a23c;
+    --diff:#3d1f1b;    --diff-b:#ec7a6c;
+    --base:#232738;    --base-b:#8fa0d6;
+  }
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { margin:0; background:var(--bg); color:var(--fg);
+  font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; }
+.wrap { max-width:1200px; margin:0 auto; padding:32px 16px 64px; }
+h1 { font:700 clamp(1.6rem,4vw,2.3rem)/1.15 Georgia,"Times New Roman",serif; margin:0 0 8px; letter-spacing:-.01em; }
+.sub { color:var(--muted); margin:0 0 24px; max-width:70ch; }
+.meta { font-size:.85rem; color:var(--muted); margin-bottom:24px; }
+.note { background:var(--card); border:1px solid var(--line); border-left:4px solid var(--accent);
+  padding:12px 16px; border-radius:6px; margin:0 0 24px; font-size:.92rem; }
+.legend { list-style:none; display:flex; flex-wrap:wrap; gap:10px 18px; padding:0; margin:0 0 20px; }
+.legend li { display:flex; align-items:center; gap:8px; font-size:.88rem; }
+.swatch { width:16px; height:16px; border-radius:4px; border:2px solid; }
+.legend .r-same .swatch { background:var(--same); border-color:var(--same-b); }
+.legend .r-similar .swatch { background:var(--similar); border-color:var(--similar-b); }
+.legend .r-path .swatch { background:var(--path); border-color:var(--path-b); }
+.legend .r-diff .swatch { background:var(--diff); border-color:var(--diff-b); }
+.scroll { overflow-x:auto; border:1px solid var(--line); border-radius:8px; background:var(--card); }
+table { border-collapse:separate; border-spacing:0; width:100%; min-width:760px; }
+thead th { position:sticky; top:0; z-index:2; background:var(--card); text-align:left;
+  padding:14px 14px; border-bottom:2px solid var(--line); vertical-align:bottom; }
+.vname { font-weight:700; font-size:1.1rem; }
+.vfw { font-weight:400; font-size:.8rem; color:var(--muted); margin-top:2px; }
+tbody th[scope=row] { text-align:left; width:170px; padding:14px; vertical-align:top;
+  font-weight:600; font-size:.92rem; border-bottom:1px solid var(--line);
+  background:var(--card); position:sticky; left:0; z-index:1; }
+td { padding:12px 14px; vertical-align:top; border-bottom:1px solid var(--line);
+  border-left:1px solid var(--line); font-size:.9rem; }
+td p { margin:0 0 8px; }
+td ul { margin:0; padding-left:18px; }
+td li { margin-bottom:5px; }
+.badge { display:inline-block; font-size:.72rem; font-weight:700; letter-spacing:.03em;
+  text-transform:uppercase; padding:2px 8px; border-radius:99px; margin-bottom:8px;
+  border:1.5px solid currentColor; }
+.links { display:flex; flex-wrap:wrap; gap:4px 12px; font-size:.8rem; }
+a { color:var(--accent); text-underline-offset:2px; }
+a:focus-visible { outline:2px solid var(--accent); outline-offset:2px; border-radius:2px; }
+td.r-base { background:var(--base); }  td.r-base .badge { color:var(--base-b); }
+td.r-same { background:var(--same); }  td.r-same .badge { color:var(--same-b); }
+td.r-similar { background:var(--similar); } td.r-similar .badge { color:var(--similar-b); }
+td.r-path { background:var(--path); }  td.r-path .badge { color:var(--path-b); }
+td.r-diff { background:var(--diff); }  td.r-diff .badge { color:var(--diff-b); }
+tr.assess td { background:transparent; }
+tr.assess th[scope=row] { color:var(--accent); }
+h2 { font:700 1.2rem/1.3 Georgia,serif; margin:40px 0 10px; }
+.src { padding-left:18px; } .src li { margin-bottom:6px; }
+.pending { color:var(--muted); font-size:.92rem; }
+footer { margin-top:40px; color:var(--muted); font-size:.82rem; border-top:1px solid var(--line); padding-top:16px; }
+@media (max-width:640px) { tbody th[scope=row] { width:120px; font-size:.82rem; } }
+@media print { thead th, tbody th[scope=row] { position:static; } }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <h1>AI-native SDLC: how the vendors compare</h1>
+  <p class="sub">What each vendor recommends for an AI-native software development lifecycle, and where they agree or differ. Anthropic's playbook is used as the baseline; every other vendor is rated against it.</p>
+  <p class="meta">Last updated 2026-10-24 &middot; Vendors reviewed: Anthropic, AWS &middot; Coming next: Atlassian, OpenAI, Microsoft, GitHub</p>
+  <div class="note"><strong>How to read this.</strong> Rows marked "our assessment" are the author's judgement, not vendor claims. Colour shows how a vendor's approach relates to the baseline; the label in each cell says the same in words. Each cell links to the section it is based on.</div>
+  <ul class="legend" aria-label="Colour legend"><li class="r-same"><span class="swatch"></span><strong>Same</strong></li><li class="r-similar"><span class="swatch"></span><strong>Similar</strong></li><li class="r-path"><span class="swatch"></span><strong>Different path, same outcome</strong></li><li class="r-diff"><span class="swatch"></span><strong>Completely different</strong></li></ul>
+  <div class="scroll">
+  <table>
+    <thead><tr><th scope="col">Topic</th><th scope="col"><div class="vname">Anthropic</div><div class="vfw">The AI-native SDLC playbook (Aug 2026)</div></th><th scope="col"><div class="vname">AWS</div><div class="vfw">AI-Driven Development Life Cycle, AI-DLC (Jul 2025; FS post May 2026)</div></th></tr></thead>
+    <tbody>
+<tr class=""><th scope="row">Lifecycle shape</th><td class="cell r-base"><span class="badge">Baseline</span><p>Six stages (Plan, Design, Build, Test, Deploy, Maintain) run as a loop, not a line. Stages are modular; adopt them in any order your dependencies allow.</p><div class="links"><a href="https://claude.com/resources/articles/the-ai-native-sdlc-playbook#sd-c2" target="_blank" rel="noopener">Plays overview&nbsp;&#8599;</a></div></td><td class="cell r-similar"><span class="badge">Similar</span><p>Three phases (Inception, Construction, Operations). Operations feeds production learning back into the next Inception cycle, so it is also a loop.</p><div class="links"><a href="https://aws.amazon.com/blogs/devops/ai-driven-development-life-cycle/" target="_blank" rel="noopener">How AI-DLC works&nbsp;&#8599;</a></div></td></tr>
+<tr class=""><th scope="row">Handoff between stages</th><td class="cell r-base"><span class="badge">Baseline</span><p>Each stage commits a named file (intent.md, spec.md, plan.md, the diff, review findings, incident record). The next stage starts by reading it. The commit chain is the audit trail.</p><div class="links"><a href="https://claude.com/resources/articles/the-ai-native-sdlc-playbook#sd-c1" target="_blank" rel="noopener">The shifts across stages&nbsp;&#8599;</a></div></td><td class="cell r-similar"><span class="badge">Similar</span><p>AI stores plans, requirements and design artifacts in the project repository so work continues across sessions. Artifact names are not standardised in the posts reviewed.</p><div class="links"><a href="https://aws.amazon.com/blogs/devops/ai-driven-development-life-cycle/" target="_blank" rel="noopener">How AI-DLC works&nbsp;&#8599;</a></div></td></tr>
+<tr class=""><th scope="row">Encoding institutional rules</th><td class="cell r-base"><span class="badge">Baseline</span><p>CLAUDE.md for conventions, skills for policies applied consistently, hooks for rules that must always hold. All version controlled and reviewed like code.</p><div class="links"><a href="https://claude.com/resources/articles/the-ai-native-sdlc-playbook#sd-s3" target="_blank" rel="noopener">Build stage&nbsp;&#8599;</a></div></td><td class="cell r-similar"><span class="badge">Similar</span><p>Steering files guide the agent on security policy, architecture standards, approved dependencies and regulatory guidance. Implemented through Amazon Q project rules and Kiro workflows.</p><div class="links"><a href="https://aws.amazon.com/blogs/industries/ai-driven-development-lifecycle-for-financial-services/" target="_blank" rel="noopener">AI-DLC for Financial Services&nbsp;&#8599;</a></div></td></tr>
+<tr class=""><th scope="row">Deterministic enforcement</th><td class="cell r-base"><span class="badge">Baseline</span><p>Hooks block or gate actions deterministically (protected paths, test-file edits, production deploys). Managed settings stop engineers switching them off.</p><div class="links"><a href="https://claude.com/resources/articles/the-ai-native-sdlc-playbook#sd-s5" target="_blank" rel="noopener">Hooks as approval gates&nbsp;&#8599;</a></div></td><td class="cell r-path"><span class="badge">Different path, same outcome</span><p>Enforcement is described mainly as automated quality gates in the CI/CD pipeline and steering files. No equivalent of per-action hooks appears in the posts reviewed.</p><div class="links"><a href="https://aws.amazon.com/blogs/industries/ai-driven-development-lifecycle-for-financial-services/" target="_blank" rel="noopener">AI-DLC for Financial Services&nbsp;&#8599;</a></div></td></tr>
+<tr class=""><th scope="row">Role of the human</th><td class="cell r-base"><span class="badge">Baseline</span><p>Humans review at gates and judge intent and risk. Agentic review layers run first; human review is reserved for regulated and critical code.</p><div class="links"><a href="https://claude.com/resources/articles/the-ai-native-sdlc-playbook#sd-s5" target="_blank" rel="noopener">AI in the PR review loop&nbsp;&#8599;</a></div></td><td class="cell r-path"><span class="badge">Different path, same outcome</span><p>Humans validate each AI plan and decision before execution proceeds. The AI plans, asks clarifying questions, and implements only after human validation, repeated for every activity.</p><div class="links"><a href="https://aws.amazon.com/blogs/devops/ai-driven-development-life-cycle/" target="_blank" rel="noopener">How AI-DLC works&nbsp;&#8599;</a></div></td></tr>
+<tr class=""><th scope="row">Risk-based approval</th><td class="cell r-base"><span class="badge">Baseline</span><p>Autonomy is tiered by environment and risk. Agents act freely in dev, prepare the release in production, and a named person authorises it.</p><div class="links"><a href="https://claude.com/resources/articles/the-ai-native-sdlc-playbook#sd-s5" target="_blank" rel="noopener">CI/CD integration&nbsp;&#8599;</a></div></td><td class="cell r-same"><span class="badge">Same</span><p>Risk-based change categorisation: only material changes need human sign-off, routine changes flow through automated validation. Production and high-impact actions keep approval controls.</p><div class="links"><a href="https://aws.amazon.com/blogs/industries/ai-driven-development-lifecycle-for-financial-services/" target="_blank" rel="noopener">AI-DLC for Financial Services&nbsp;&#8599;</a></div></td></tr>
+<tr class=""><th scope="row">Testing and self-verification</th><td class="cell r-base"><span class="badge">Baseline</span><p>Every session verifies its own work (tests, build, screenshot diff) before a human sees it. Continuous evals regression-test the agent configuration itself.</p><div class="links"><a href="https://claude.com/resources/articles/the-ai-native-sdlc-playbook#sd-s4" target="_blank" rel="noopener">Test stage&nbsp;&#8599;</a></div></td><td class="cell r-similar"><span class="badge">Similar</span><p>AI validates its own work and self-corrects when tests fail, including deviations from steering files. QA is left-shifted, with high-fidelity test environments and security testing.</p><div class="links"><a href="https://aws.amazon.com/blogs/industries/ai-driven-development-lifecycle-for-financial-services/" target="_blank" rel="noopener">AI-DLC for Financial Services&nbsp;&#8599;</a></div></td></tr>
+<tr class=""><th scope="row">Closing the loop after release</th><td class="cell r-base"><span class="badge">Baseline</span><p>Headless stage: a deterministic detector watches production metrics against control bands and invokes the agent, which writes the finding as a new intent.md. Scheduled security scans and Slack-based on-call extend it.</p><div class="links"><a href="https://claude.com/resources/articles/the-ai-native-sdlc-playbook#sd-s6" target="_blank" rel="noopener">Maintain stage&nbsp;&#8599;</a></div></td><td class="cell r-path"><span class="badge">Different path, same outcome</span><p>Monitoring feeds the coding agent&#x27;s context and informs future Inception cycles. AI agents (for example Amazon DevOps Agent) can investigate incident root causes. Less specific on autonomy tiers.</p><div class="links"><a href="https://aws.amazon.com/blogs/industries/ai-driven-development-lifecycle-for-financial-services/" target="_blank" rel="noopener">AI-DLC for Financial Services&nbsp;&#8599;</a></div></td></tr>
+<tr class=""><th scope="row">Team structure and rituals</th><td class="cell r-base"><span class="badge">Baseline</span><p>Not prescribed. Focus is on artifacts, automation and gates. One engineer can run several parallel sessions, but no new team model or vocabulary is mandated.</p><div class="links"><a href="https://claude.com/resources/articles/the-ai-native-sdlc-playbook#sd-s3" target="_blank" rel="noopener">Parallel sessions and subagents&nbsp;&#8599;</a></div></td><td class="cell r-diff"><span class="badge">Completely different</span><p>Prescriptive. AI Pods of 2 to 3 developers replace scrum teams of about 7. Sprints become &quot;bolts&quot;, epics become Units of Work, and Mob Elaboration / Mob Construction are team rituals. Co-location matters in Inception.</p><div class="links"><a href="https://aws.amazon.com/blogs/devops/ai-driven-development-life-cycle/" target="_blank" rel="noopener">How AI-DLC works&nbsp;&#8599;</a> <a href="https://aws.amazon.com/blogs/industries/ai-driven-development-lifecycle-for-financial-services/" target="_blank" rel="noopener">Organizational shift&nbsp;&#8599;</a></div></td></tr>
+<tr class=""><th scope="row">Measurement</th><td class="cell r-base"><span class="badge">Baseline</span><p>Each play names a leading and a lagging indicator, mostly read from git history, PR metadata and CI events (for example time from intent to spec, rework after build starts, DORA).</p><div class="links"><a href="https://claude.com/resources/articles/the-ai-native-sdlc-playbook#sd-c2" target="_blank" rel="noopener">How to measure it (per play)&nbsp;&#8599;</a></div></td><td class="cell r-path"><span class="badge">Different path, same outcome</span><p>A KPI suite (mean time to deploy and recover, failed-deployment %, incidents by severity, technical debt, NPS) plus Amazon&#x27;s Cost-to-Serve-Software framework for the financial case.</p><div class="links"><a href="https://aws.amazon.com/blogs/industries/ai-driven-development-lifecycle-for-financial-services/" target="_blank" rel="noopener">Measurable outcomes&nbsp;&#8599;</a></div></td></tr>
+<tr class=""><th scope="row">Prerequisites and adoption path</th><td class="cell r-base"><span class="badge">Baseline</span><p>Dependency graph of twelve plays. Six have no prerequisites, so teams start anywhere and build up.</p><div class="links"><a href="https://academy.claude.com/courses/ai-native-sdlc-playbook/introduction" target="_blank" rel="noopener">Pick your first play&nbsp;&#8599;</a></div></td><td class="cell r-similar"><span class="badge">Similar</span><p>Three-phase adoption: executive alignment, technical enablement, hands-on pilots. States mature DevSecOps must already exist, because AI-DLC amplifies existing capability.</p><div class="links"><a href="https://aws.amazon.com/blogs/industries/ai-driven-development-lifecycle-for-financial-services/" target="_blank" rel="noopener">Getting started&nbsp;&#8599;</a></div></td></tr>
+<tr class=""><th scope="row">Level of implementation detail</th><td class="cell r-base"><span class="badge">Baseline</span><p>High. Step-by-step plays with example files, configs, prompts and governance notes for each play.</p><div class="links"><a href="https://claude.com/resources/articles/the-ai-native-sdlc-playbook" target="_blank" rel="noopener">Full playbook&nbsp;&#8599;</a></div></td><td class="cell r-path"><span class="badge">Different path, same outcome</span><p>Methodology and principles in the public posts, with the full method in a whitepaper (not yet reviewed here). Open-sourced workflows are available for implementation.</p><div class="links"><a href="https://aws.amazon.com/blogs/devops/ai-driven-development-life-cycle/" target="_blank" rel="noopener">How to get started&nbsp;&#8599;</a></div></td></tr>
+<tr class=""><th scope="row">Evidence of results</th><td class="cell r-base"><span class="badge">Baseline</span><p>No customer outcome figures in the playbook itself. It leans on Anthropic&#x27;s internal practice and the measurement plays.</p><div class="links"><a href="https://claude.com/resources/articles/the-ai-native-sdlc-playbook#sd-c9" target="_blank" rel="noopener">Closing thoughts&nbsp;&#8599;</a></div></td><td class="cell r-diff"><span class="badge">Completely different</span><p>Quotes figures: a Bedrock engine rebuilt by 6 engineers in 76 days against an estimate of 40 engineers for a year, and an unnamed European bank going from 12 to 3 developers. All vendor-reported.</p><div class="links"><a href="https://aws.amazon.com/blogs/industries/ai-driven-development-lifecycle-for-financial-services/" target="_blank" rel="noopener">A signal too big to ignore&nbsp;&#8599;</a></div></td></tr>
+<tr class="assess"><th scope="row">Strengths (our assessment)</th><td class="cell r-base"><ul><li>Concrete and implementable: named files, example configs, prompts</li><li>Controls are deterministic (hooks, managed settings), not just advisory</li><li>Every play has measurable indicators drawn from existing tooling</li><li>Modular: start with any no-prerequisite play</li></ul></td><td class="cell"><ul><li>Clear operating model for teams (AI Pods, mob rituals)</li><li>Strong regulated-industry story: traceability, steering files, risk-based approval</li><li>Business-case framing (cost-to-serve) for executives</li><li>Workflows are open-sourced; the FS post names Claude Code alongside Kiro</li></ul></td></tr>
+<tr class="assess"><th scope="row">Gaps and watch-outs (our assessment)</th><td class="cell r-base"><ul><li>Tooling is Claude-centric; other agents need translating</li><li>Says little on team structure, roles and change management</li><li>No baseline step before the loop; third-party critics flag measurement needs a pre-existing baseline</li><li>No customer outcome numbers to anchor an ROI case</li></ul></td><td class="cell"><ul><li>Headline results are vendor-reported or unnamed</li><li>Public posts are conceptual; detail sits in a whitepaper</li><li>Heavy rituals and co-location may be hard to retrofit onto existing teams</li><li>Slower on autonomous operation: humans stay close to every plan</li></ul></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <h2>Grounding sources</h2>
+  <ul class="src"><li><strong>Anthropic</strong>: <a href="https://claude.com/resources/articles/the-ai-native-sdlc-playbook" target="_blank" rel="noopener">Playbook (article)&nbsp;&#8599;</a> <a href="https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6aba736348bdf4f08183f463_AI%20Native%20SDLC%20Playbook_designv2%20%281%29.pdf" target="_blank" rel="noopener">Playbook (PDF)&nbsp;&#8599;</a> <a href="https://academy.claude.com/courses/ai-native-sdlc-playbook" target="_blank" rel="noopener">Claude Academy course&nbsp;&#8599;</a></li><li><strong>AWS</strong>: <a href="https://aws.amazon.com/blogs/devops/ai-driven-development-life-cycle/" target="_blank" rel="noopener">AI-DLC announcement (Jul 2025)&nbsp;&#8599;</a> <a href="https://aws.amazon.com/blogs/industries/ai-driven-development-lifecycle-for-financial-services/" target="_blank" rel="noopener">AI-DLC for Financial Services (May 2026)&nbsp;&#8599;</a></li></ul>
+  <h2>Independent commentary</h2>
+  <ul class="src"><li><a href="https://waydev.co/anthropics-ai-native-sdlc-playbook-has-a-missing-layer-measurement/" target="_blank" rel="noopener">Waydev: the playbook&#x27;s missing layer is measurement&nbsp;&#8599;</a></li><li><a href="https://www.qualitylogic.com/knowledge-center/ai-native-sdlc-playbook/" target="_blank" rel="noopener">QualityLogic: the playbook is missing one play&nbsp;&#8599;</a></li><li><a href="https://eleks.com/blog/aws-ai-dlc-explained/" target="_blank" rel="noopener">ELEKS: AWS AI-DLC explained, with comparisons&nbsp;&#8599;</a></li></ul>
+  <footer>Based on public vendor pages only. Vendor figures are vendor-reported and not independently verified. Personal project; views are the author's own and do not represent any employer or client.</footer>
+</main>
+</body>
+</html>
