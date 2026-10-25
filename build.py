@@ -230,6 +230,7 @@ footer {{ margin-top:40px; color:var(--muted); font-size:.82rem; border-top:1px 
 <main class="wrap">
   <h1>{e(d["title"])}</h1>
   <p class="sub">What each vendor recommends for an AI-native software development lifecycle, and where they agree or differ. Anthropic's playbook is used as the baseline; every other vendor is rated against it.</p>
+  <div class="note"><strong>Companion page:</strong> <a href="flow.html">AI-Native SDLC: Target Flow Design</a>, a first-principles target flow with six human gates.</div>
   <p class="meta">Last updated {e(d["updated"])} &middot; Vendors reviewed: {", ".join(e(v["name"]) for v in vendors)}{nextup}</p>
   <div class="note"><strong>How to read this.</strong> Rows marked "our assessment" are the author's judgement, not vendor claims. Colour shows how a vendor's approach relates to the baseline; the label in each cell says the same in words. Each cell links to the section it is based on.</div>
   {summary_html}
