@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate index.html (AI-Native SDLC: Target Flow Design). Usage: python3 build_flow.py"""
+"""Generate index.html (AI Native SDLC: Intent based Development). Usage: python3 build_flow.py"""
 import html, re
 from pathlib import Path
 
@@ -242,13 +242,13 @@ page = f"""<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AI-Native SDLC: Target Flow Design</title>
+<title>AI Native SDLC: Intent based Development</title>
 <meta name="description" content="A target flow for AI-native software delivery, from user signal to verified value, with six human gates. Designed from first principles.">
 <style>{CSS}</style>
 </head>
 <body>
 <main class="wrap">
-<h1>AI-Native SDLC: Target Flow Design</h1>
+<h1>AI Native SDLC: Intent based Development</h1>
 <p class="sub">How work moves from a user signal to verified value in production when AI does the building and humans hold the decisions.</p>
 <p class="meta">Last updated 2026-10-25 &middot; Design model, not an adoption plan</p>
 <p class="xlink">See also <a href="comparison.html">the vendor comparison</a>, which compares seven vendors' AI-native SDLC frameworks.</p>
