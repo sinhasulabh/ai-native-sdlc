@@ -3,7 +3,7 @@
 A side-by-side comparison of vendor frameworks for an AI-native software development lifecycle, using Anthropic's playbook as the baseline.
 
 - `data.json` holds all content (vendors, rows, ratings, links).
-- `build.py` generates `index.html` from it: `python3 build.py`.
+- `build.py` generates `comparison.html` from it: `python3 build.py`; `build_flow.py` generates `index.html` (the target-flow page).
 - To add a vendor: add an entry under `vendors`, add a cell for it in every row, then rebuild.
 
 Based on public vendor pages only. Personal project; views are the author's own.

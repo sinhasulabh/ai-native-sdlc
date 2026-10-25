@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate flow.html (AI-Native SDLC: Target Flow Design). Usage: python3 build_flow.py"""
+"""Generate index.html (AI-Native SDLC: Target Flow Design). Usage: python3 build_flow.py"""
 import html, re
 from pathlib import Path
 
@@ -118,7 +118,7 @@ def sec(i, title, *parts):
 
 sec("purpose", "Purpose and scope",
     p("This document defines a target flow for AI-native software delivery: how work moves from a user signal to verified value in production when AI does the building and humans hold the decisions."),
-    p("The flow was designed from first principles, without the constraints of today's process (sprints, ticket types, role titles). The aim was to see what the full potential of an AI-native lifecycle looks like before asking what stands in its way."),
+    p("The flow was designed from first principles, without the constraints of today's process (sprints, ticket types, role titles). It is an attempt to reinvent the SDLC flow for an AI-native world, rather than to adapt today's process."),
     p("It is a design model, not a tool selection, an adoption plan or a replacement for an organisation's risk and compliance policy. Where the design deliberately leaves a choice to teams, the document says so and lists it under open points. Overlaying a specific organisation's real-world constraints on this flow is a separate, later step."))
 
 sec("principles", "Design principles",
@@ -146,13 +146,7 @@ sec("intake", "Intake and prioritisation",
         ["Cost", "Human review hours, not build time", "3 review-hours"],
         ["Urgency", "How fast the value decays", "None"]]),
     p("Cost means review load because AI makes build effort much smaller, though not uniform: complex changes still cost more iterations, compute and verification. The scarce resource is human attention."),
-    p("**Configurable formula.** Teams choose RICE, WSJF, weighted scoring or their own. The default is WSJF: cost of delay divided by job size. Cost of delay is the sum of business value, time criticality, and risk reduction or opportunity enablement, each scored on a relative scale (1, 2, 3, 5, 8, 13, 20). Job size is review cost. The inputs, score and rationale are stored with every intent so the ranking can be compared with the human's decision later."),
-    p("**Worked example** (illustrative numbers). A is an address-step fix, B a slow-search fix, C a security patch. RICE is adapted here: impact is a conversion lift and effort is review-hours, where standard RICE scores impact from 0.25 to 3 and effort in person-months. ICE uses 1 to 10 scores."),
-    table(["Intent", "WSJF: (value + time + risk) ÷ size", "Adapted RICE: reach × impact × confidence ÷ review-hours", "ICE: impact × confidence × ease"], [
-        ["A", "(8 + 2 + 1) ÷ 3 = 3.7", "40,000 × 0.05 × 0.7 ÷ 3 = 467", "7 × 7 × 9 = 441"],
-        ["B", "(5 + 3 + 2) ÷ 1 = 10", "10,000 × 0.10 × 0.9 ÷ 1 = 900", "5 × 9 × 9 = 405"],
-        ["C", "(2 + 13 + 13) ÷ 2 = 14", "50,000 × 0.02 × 0.9 ÷ 2 = 450", "3 × 9 × 9 = 243"]]),
-    p("WSJF ranks C, B, A. RICE ranks B, A, C. ICE ranks A, B, C. The security patch comes first only under WSJF, because time criticality and risk reduction are explicit terms; RICE and ICE have no term for urgency or risk, and ICE's \"ease\" separates little when AI makes most work easy."))
+    p("**Configurable formula.** Teams choose the prioritisation framework that suits them. Common options include RICE, ICE and WSJF, as well as MoSCoW, the Kano model, value-versus-effort matrices and weighted scoring, or a custom formula over the same fixed inputs. WSJF is the suggested default. The inputs, score and rationale are stored with every intent so the ranking can be compared with the human's decision later."))
 
 sec("build", "Build and verification",
     p("Nothing is built until a human has approved the spec and its verification plan, and nothing merges until the same checks have run twice: in the agent loop and in CI."),
@@ -194,33 +188,7 @@ sec("gates", "Human gates",
         ["6. Governance", "Set the prioritisation formula, autonomy level per category and guardrail thresholds", "Agreement and outcome measures per category", "Team defines", "Current settings stay in force"]]),
     p("Decided so far: the four fields, and Gate 4's rule that the ramp stays paused when nobody responds. The other eligibility and no-response entries are proposals for teams to confirm. The escalation chain (who is alerted first, how long before the next person, who is the final owner) is left for each team to define."))
 
-sec("open", "Open points and parked items",
-    p("Six choices are deliberately left to teams, and a few techniques are parked for later. The largest risk in the design is human PR review: every PR goes to a human, so review capacity limits how much work can flow."),
-    p("**Left to teams**"),
-    table(["Point", "Options named so far"], [
-        ["Prioritisation formula", "WSJF is the default; RICE, weighted scoring or a custom formula over the same fixed inputs"],
-        ["Attribution method", "Split cohorts, or staggered releases, optionally with a holdout group"],
-        ["Relieving the PR review bottleneck", "Tiered review (AI reviews low-risk changes, humans focus on high-risk and high-impact ones); a cap on intents in flight tied to reviewer-hours; the parked techniques below"],
-        ["Escalation chain", "Who is alerted first, how long before the next person, who owns the final call"],
-        ["Flag tooling", "Flags as code in Git, or a managed platform with a dashboard; code against the OpenFeature standard either way"],
-        ["Effort for combination tests", "Teams plan the test effort for flags that share an area"]]),
-    p("**Parked for later**"),
-    ul(["AI-written risk assessment of each PR by the agent that produced it.",
-        "Conditional approval: a human approves the core logic and the change merges automatically if the tests pass.",
-        "Tiered AI reviewers: managed, hybrid (CI plus an agent CLI) and custom (code knowledge graph with sub-agent pipelines).",
-        "Human-factors measures: a no-blame culture, quiet hours for review requests, weekly agent-insight sessions.",
-        "An independent reviewer agent that reports spec fidelity in the PR report, for categories that have earned trust."]))
-
-sec("evidence", "Evidence base",
-    p("The design draws on a comparison of seven vendors' AI-native SDLC frameworks, with Anthropic's playbook as the baseline. Anthropic's and AWS's sources give no prioritisation method (the other five were not checked for one), so the intake and prioritisation design draws on common product practice rather than on the vendors. The full comparison is published [on the comparison page](index.html)."),
-    p("**Where the design borrows**"),
-    ul(["Anthropic: intent as the starting artifact, a human gate on the spec, hooks for deterministic enforcement, control bands as the basis for closing the loop after release, and adding parallel work only while review keeps up.",
-        "AWS: work decomposed into units with dependencies, and cycles of hours or days in place of sprints.",
-        "Google: tests plus evals as the line between vibe coding and engineering, the prototype-to-production boundary, and (parked) the review-load techniques.",
-        "Atlassian and GitHub: closing the loop from operational signals, and enterprise-level controls over agents."]),
-    p("**Where it differs from the baseline:** fixed prioritisation inputs with a configurable formula; autonomy earned per category through agreement and outcome measures, where Anthropic sets autonomy by environment; flags on every flaggable change with human-decided rollback; and attribution recorded per intent."),
-    p("**Caveats.** Vendor outcome figures are vendor-reported and unverified. Google's Day 5 material comes from a podcast transcript, not the paper."),
-    p("**Sources**"),
+sec("sources", "Sources",
     ul(["[Anthropic, The AI-native SDLC playbook](https://claude.com/resources/articles/the-ai-native-sdlc-playbook)",
         "[AWS, AI-Driven Development Life Cycle](https://aws.amazon.com/blogs/devops/ai-driven-development-life-cycle/)",
         "[Atlassian, AI SDLC transformation playbook](https://www.atlassian.com/blog/ai-at-work/ai-sdlc-transformation-playbook)",
@@ -232,7 +200,7 @@ sec("evidence", "Evidence base",
 
 TOC = [("purpose", "Purpose"), ("principles", "Principles"), ("flow", "The flow"), ("intake", "Intake"),
        ("build", "Build"), ("release", "Release"), ("loop", "Learning"), ("gates", "Gates"),
-       ("open", "Open points"), ("evidence", "Evidence")]
+       ("sources", "Sources")]
 toc = "".join(f"<a href='#{i}'>{e(t)}</a>" for i, t in TOC)
 
 CSS = """
@@ -283,13 +251,13 @@ page = f"""<!doctype html>
 <h1>AI-Native SDLC: Target Flow Design</h1>
 <p class="sub">How work moves from a user signal to verified value in production when AI does the building and humans hold the decisions.</p>
 <p class="meta">Last updated 2026-10-25 &middot; Design model, not an adoption plan</p>
-<p class="xlink">Companion to <a href="index.html">the vendor comparison</a>, which compares seven vendors' AI-native SDLC frameworks.</p>
+<p class="xlink">See also <a href="comparison.html">the vendor comparison</a>, which compares seven vendors' AI-native SDLC frameworks.</p>
 <nav class="toc" aria-label="Sections">{toc}</nav>
 {"".join(S)}
-<footer>Personal project; views are the author's own and do not represent any employer or client. Based on public sources only. See also the <a href="index.html">vendor comparison</a>.</footer>
+<footer>Personal project; views are the author's own and do not represent any employer or client. Based on public sources only. See also the <a href="comparison.html">vendor comparison</a>.</footer>
 </main>
 </body>
 </html>
 """
-(root / "flow.html").write_text(page)
-print("wrote flow.html", len(page), "bytes")
+(root / "index.html").write_text(page)
+print("wrote index.html", len(page), "bytes")
