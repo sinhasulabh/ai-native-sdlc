@@ -124,11 +124,34 @@ sec("purpose", "Purpose and scope",
 sec("principles", "Design principles",
     p("Six principles shape every choice in the flow."),
     ol(["**North star: time from user signal to verified value in production, with quality held constant.** A shortcut that trades correctness for speed does not count.",
-        "**The unit of work is an intent**: an outcome plus how it will be verified. Stories describe activity; intents describe outcomes, so what enters the flow already carries its own verification.",
+        "**The unit of work is an intent**: an outcome plus how it will be verified. It replaces the user story as the unit of work. A story states a need and its acceptance criteria; an intent also names how the outcome will be verified in production, and it is closed only when that outcome is measured.",
         "**AI suggests, humans decide.** AI collects signals, drafts intents, builds, checks and recommends. Humans decide at defined gates.",
         "**Autonomy is earned per category of intent.** Every category starts with full human review. Agreement between AI and human, and delivered outcomes, decide when a category gets more autonomy.",
         "**Deploying is separate from releasing.** Every change that can be flagged ships behind a flag, off by default, so it can be reversed without a redeploy.",
         "**Every closed intent teaches the system.** Each one writes a structured record that feeds autonomy decisions and turns missed issues into new rules and tests."]))
+
+sec("agile", "What changes from agile",
+    p("The flow replaces agile's unit of work and its time boxes. It keeps the testing and does not replace it with user feedback: the checks move earlier and production gets its own verification. The tables compare the two ways of working as designed, not as any team practises agile today. Scrum itself does not mandate user stories, but most teams use them."),
+    "<div class='callout'><strong>New unit of work: the intent.</strong> An intent is an outcome plus how it will be verified. It replaces the user story as the unit that is prioritised, approved, built and closed.</div>",
+    p("**Unit of work: user story and intent**"),
+    table(["", "User story (agile)", "Intent (this flow)"], [
+        ["States", "A need: who wants what, and why", "The outcome to achieve, with the metric that shows it was achieved"],
+        ["Verification", "Acceptance criteria, usually checked before release", "A verification plan approved before build: functional tests, rollout plan and guardrail thresholds"],
+        ["Prioritised by", "Product owner, by judgement or a team framework", "Fixed inputs (value, confidence, risk, cost, urgency) under a configurable formula, then a human decision at Gate 1"],
+        ["Done when", "Team's definition of done, typically merged and accepted", "Outcome metric verified in production"],
+        ["Leaves behind", "Closed ticket", "A structured record: AI recommendation, human choice, outcome against promise, lessons"]]),
+    p("**Ways of working: agile and this flow**"),
+    table(["Agile", "This flow"], [
+        ["Sprint of fixed length", "Continuous flow with no time box. Work moves when a gate is passed."],
+        ["Backlog refined and planned per sprint", "A ranked list of intents, re-ranked as signals arrive. Gate 1 decides which go ahead."],
+        ["Story points and estimation", "Cost is human review hours, because AI makes build effort small."],
+        ["Roles such as product owner and tester", "Gates, which are decisions, not roles. Anyone eligible can pass one."],
+        ["Test or QA cycle before release", "Tests approved at Gate 2, run in hooks and in CI, then a human PR review. No separate late testing phase."],
+        ["Release as a milestone", "Every flaggable change ships dark, then ramps in stages while guardrail metrics hold."],
+        ["Feedback after release, at the sprint review", "Production metrics during the ramp, and an outcome check that closes each intent."],
+        ["Rollback as an emergency", "A designed step: the AI recommends, a human decides at Gate 4, and the AI executes."],
+        ["Retrospective", "An intent record for every closed intent. Misses become rules and tests."]]),
+    p("Frequent user feedback does not replace testing here. User signals feed intake and decide what to build. Production metrics and the rollback decision check whether a released change works. Pre-release testing still happens, built into the loop and CI."))
 
 sec("flow", "The target flow at a glance",
     p("Humans hold six gates; everything between them is AI or automation."),
@@ -198,7 +221,7 @@ sec("sources", "Sources",
         "[Google, The New SDLC With Vibe Coding (Day 1 whitepaper)](https://www.kaggle.com/whitepaper-the-new-SDLC-with-vibe-coding)",
         "[Google, Day 5 podcast (summary page)](https://videohighlight.com/v/VSRdL4wlbLY)"]))
 
-TOC = [("purpose", "Purpose"), ("principles", "Principles"), ("flow", "The flow"), ("intake", "Intake"),
+TOC = [("purpose", "Purpose"), ("principles", "Principles"), ("agile", "Vs agile"), ("flow", "The flow"), ("intake", "Intake"),
        ("build", "Build"), ("release", "Release"), ("loop", "Learning"), ("gates", "Gates"),
        ("sources", "Sources")]
 toc = "".join(f"<a href='#{i}'>{e(t)}</a>" for i, t in TOC)
@@ -233,6 +256,7 @@ svg .bx{fill:none;stroke:var(--edge);stroke-width:1.25}
 svg .bx.h{fill:var(--hum);stroke:var(--hum-b);stroke-width:2}
 svg .gov{fill:var(--tint);stroke:var(--line)}
 svg .ln{fill:none;stroke:var(--edge);stroke-width:1.25}svg .mk{fill:var(--edge)}
+  .callout{border:1px solid var(--line);border-left:4px solid var(--accent);background:var(--tint);border-radius:6px;padding:12px 14px;margin:0 0 16px}
 footer{margin-top:48px;color:var(--muted);font-size:.82rem;border-top:1px solid var(--line);padding-top:16px}
 @media print{section{break-inside:avoid-page}}
 """
