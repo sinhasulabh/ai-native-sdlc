@@ -728,7 +728,7 @@
         },
         "google": {
           "rating": "different-path",
-          "text": "Partial and human-supervised. A 'quality flywheel' monitors production traffic for new failure modes; deployment agents can watch health and roll back; observability traces why an agent made a deployment decision. No autonomous loop where production signals become the next intent.",
+          "text": "Partial and human-supervised. A 'quality flywheel' monitors production traffic for new failure modes; deployment agents can watch health and roll back; observability traces why an agent made a deployment decision. No loop where production signals automatically trigger diagnosis and a draft fix.",
           "links": [
             {
               "label": "Whitepaper: Testing and QA; Code review and deployment",
@@ -1253,7 +1253,7 @@
         "google": {
           "bullets": [
             "Day 5 is read via a podcast transcript, not the paper; its statistics are unverified. Day 3 and Day 4 papers are not read.",
-            "No graded risk bands, delivery metrics or autonomous post-release loop.",
+            "No graded risk bands, delivery metrics or automated post-release loop.",
             "Day 1 statistics come from secondary blogs; the papers offer little data of their own.",
             "Product examples lean on Google tooling (Agents CLI, Gemini Code Assist, Antigravity, Vertex AI, Spanner).",
             "Treating code as disposable is a strong claim that depends on very high spec quality."
